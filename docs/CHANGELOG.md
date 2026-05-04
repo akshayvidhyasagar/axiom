@@ -52,3 +52,11 @@ Format: `[YYYY-MM-DD] Category — Description`
 - Updated `ANTIGRAVITY.md` — added permanent session protocol, commit convention, manual steps for Akshay
 - Updated `.gitignore` — added `.gitnexus` to ignored paths
 
+---
+
+## [2026-05-04] Maintenance — Behavioral Guidelines Integration
+
+### Code Changes
+- Updated `ANTIGRAVITY.md` — Integrated Karpathy-style behavioral guidelines for reducing common LLM coding mistakes (Think Before Coding, Simplicity First, Surgical Changes, Goal-Driven Execution).
+- Updated `ANTIGRAVITY.md` — Added step to Session START protocol to strictly follow these guidelines.
+
