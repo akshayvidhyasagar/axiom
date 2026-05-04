@@ -7,18 +7,18 @@ This project is indexed by GitNexus as **AXIOM**. Use GitNexus MCP tools to unde
 
 ## Always Do
 
-- **MUST run impact analysis before editing any symbol.** Before modifying a function, class, or method, run `gitnexus_impact({target: "symbolName", direction: "upstream", repo: "AXIOM"})` and report the blast radius to the user.
-- **MUST run `gitnexus_detect_changes({repo: "AXIOM"})` before committing** to verify changes only affect expected symbols.
-- **MUST warn the user** if impact analysis returns HIGH or CRITICAL risk before proceeding.
-- Use `gitnexus_query({query: "concept", repo: "AXIOM"})` to find execution flows instead of grepping.
+- **MUST run impact analysis before editing any symbol.** Run `gitnexus_impact({target: "symbolName", direction: "upstream", repo: "AXIOM"})` and report the blast radius.
+- **MUST run `gitnexus_detect_changes({repo: "AXIOM"})` before committing.**
+- **MUST warn the user** if impact analysis returns HIGH or CRITICAL risk.
+- Use `gitnexus_query({query: "concept", repo: "AXIOM"})` to find execution flows.
 - Use `gitnexus_context({name: "symbolName", repo: "AXIOM"})` for full symbol context.
 
 ## Never Do
 
-- NEVER edit a function, class, or method without first running `gitnexus_impact` on it.
-- NEVER ignore HIGH or CRITICAL risk warnings from impact analysis.
+- NEVER edit a function/class/method without first running `gitnexus_impact`.
+- NEVER ignore HIGH or CRITICAL risk warnings.
 - NEVER rename symbols with find-and-replace — use `gitnexus_rename`.
-- NEVER commit changes without running `gitnexus_detect_changes()`.
+- NEVER commit without running `gitnexus_detect_changes()`.
 
 ## Resources
 
@@ -32,15 +32,24 @@ This project is indexed by GitNexus as **AXIOM**. Use GitNexus MCP tools to unde
 
 ---
 
-# AXIOM — Project Context
+# AXIOM — Permanent Agent Protocol
 
-## What This Is
+## Session START (every session, no exceptions)
 
-**AXIOM** (Adaptive Cross-regime Intelligent Order Management) is a regime-aware, multi-signal equity strategy extending Microsoft Qlib with alternative data factors, heterogeneous model routing, and realistic execution simulation.
+1. Read `docs/PRD.md` → identify current active phase
+2. Read `docs/ARCHITECTURE.md` → load module map
+3. Read `docs/CHANGELOG.md` → last 3 entries for recent context
+4. If task touches a wiki concept → read that `wiki/concepts/` page first
+5. Run GitNexus on any file about to be edited
+
+## Session END (every session, no exceptions)
+
+1. Append entry to `docs/CHANGELOG.md` (see `rules/axiom-kb.md` for format)
+2. Update `docs/ARCHITECTURE.md` if any files were created/moved/deleted
+3. Update `docs/PRD.md` checkboxes if phase progress was made
+4. Run `gitnexus_detect_changes()` before committing
 
 ## Current State
-
-The repo contains a **working prototype** (`core/`) using `defeatbeta-api` + FRED. This prototype is NOT the target system — it will be superseded by the Qlib-based architecture once Phase 0 begins.
 
 | Directory | Status | Purpose |
 |-----------|--------|---------|
@@ -53,21 +62,44 @@ The repo contains a **working prototype** (`core/`) using `defeatbeta-api` + FRE
 | `portfolio/` | EMPTY | Phase 4: risk-parity + sector caps |
 | `execution/` | EMPTY | Phase 5: Almgren-Chriss simulation |
 
-## Documentation
+## Key Documentation
 
-| Document | Purpose |
-|----------|---------|
-| `docs/PRD.md` | Phased build plan — all phases currently unchecked |
-| `docs/ARCHITECTURE.md` | System architecture and module dependencies |
-| `docs/DECISIONS.md` | Architectural Decision Records (ADR-001 through ADR-006) |
-| `docs/CHANGELOG.md` | Chronological change log |
-| `wiki/INDEX.md` | Obsidian knowledge vault entry point |
-| `rules/axiom-kb.md` | Knowledge base maintenance rules |
+| File | Purpose |
+|------|---------|
+| `docs/PRD.md` | Phased build plan — check phase status here |
+| `docs/ARCHITECTURE.md` | Module map and dependencies |
+| `docs/DECISIONS.md` | ADRs — always check before making architectural choices |
+| `docs/CHANGELOG.md` | Session log — append-only |
+| `wiki/INDEX.md` | Knowledge vault entry point |
+| `rules/axiom-kb.md` | Full maintenance rules (Second Brain protocol) |
+| `skills/llm-wiki-compiler/SKILL.md` | Wiki compilation procedure |
+
+## Commit Convention
+
+```
+wiki: ingest <source>          # wiki changes
+fix: <desc> in <file>          # bug fixes
+arch: <desc> in ARCHITECTURE   # architecture doc changes
+prd: <desc> in PRD             # PRD changes
+adr: ADR-00N <title>           # new decisions
+feat: <feature> in <module>    # new features
+chore: CHANGELOG sync          # maintenance
+```
+
+**Never commit canonical docs and code changes in the same commit.**
 
 ## Key Rules
 
-1. **Never fill benchmark table with prototype results** — only Qlib-pipeline outputs are valid
-2. **Point-in-time discipline is non-negotiable** — see ADR-005
-3. **Factor validation before inclusion** — IC ≥ 0.02 threshold, see ADR-006
-4. **Update `docs/CHANGELOG.md` before every commit**
-5. **Log architectural decisions as ADRs** in `docs/DECISIONS.md`
+1. Never fill benchmark table with prototype results
+2. Point-in-time discipline is non-negotiable (ADR-005)
+3. Factor validation IC ≥ 0.02 before inclusion (ADR-006)
+4. Update CHANGELOG before every commit
+5. Log architectural decisions as ADRs
+
+## What Akshay Does Manually
+
+- Open Obsidian → "Open folder as vault" → `AXIOM/wiki/`
+- Review graph view after wiki compiles for orphans/hubs
+- Drop raw materials into `raw/` then say "compile wiki"
+- Confirm phase completion: "mark Phase N complete"
+- Periodically review ADRs: "are past decisions still valid?"

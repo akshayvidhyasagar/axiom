@@ -41,3 +41,14 @@ Format: `[YYYY-MM-DD] Category — Description`
 - `wiki/INDEX.md` — updated with all 4 concept pages
 - `wiki/.meta/last_compiled` — set to `2026-05-04T12:08:00+08:00`
 - `raw/` — scanned, empty (no new materials to ingest)
+
+---
+
+## [2026-05-04] Maintenance — Permanent Knowledge System Protocol
+
+### Code Changes
+- Updated `rules/axiom-kb.md` — encoded full Second Brain maintenance protocol (session start/end, canonical file rules, commit convention)
+- Updated `skills/llm-wiki-compiler/SKILL.md` — enhanced with new page template, quality rules, orphan detection, graph hygiene
+- Updated `ANTIGRAVITY.md` — added permanent session protocol, commit convention, manual steps for Akshay
+- Updated `.gitignore` — added `.gitnexus` to ignored paths
+
