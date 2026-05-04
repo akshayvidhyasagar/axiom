@@ -1,0 +1,43 @@
+# AXIOM — Changelog
+
+All notable changes to this project are documented in this file.  
+Format: `[YYYY-MM-DD] Category — Description`
+
+---
+
+## [2026-05-04] Scaffolding — AXIOM Knowledge System
+
+### Created
+- `docs/PRD.md` — Product requirements with 7 phased build plan, all phases unchecked
+- `docs/ARCHITECTURE.md` — System architecture, module map, dependency table
+- `docs/DECISIONS.md` — ADR-001 through ADR-006
+- `docs/CHANGELOG.md` — This file
+- `wiki/INDEX.md` — Obsidian vault entry point with concept page table
+- `wiki/.meta/last_compiled` — Wiki compilation timestamp
+- `wiki/concepts/qlib-alpha158.md` — Qlib Alpha158 baseline factor set
+- `wiki/concepts/regime-detection.md` — HMM regime detection concept
+- `wiki/concepts/factor-scoring.md` — Factor IC/ICIR scoring methodology
+- `wiki/concepts/polygon-data-layer.md` — Data layer architecture (renamed: covers all data sources)
+- `rules/axiom-kb.md` — Antigravity knowledge-base rules
+- `skills/llm-wiki-compiler/SKILL.md` — LLM Wiki Compiler skill definition
+- `raw/.gitkeep` — Wiki ingestion drop zone
+- `README.md` — Project README with architecture, benchmark table, methodology
+
+### Modified
+- `ANTIGRAVITY.md` — Optimized with AXIOM-specific context and knowledge system references
+
+### Architectural Decisions Added
+- ADR-005: Point-in-time data discipline for all backtests
+- ADR-006: Threshold-based signal selection, not rank-based top-N
+
+---
+
+## [2026-05-04] WikiCompile — compiled 4 pages (4 new, 0 updated)
+
+- `wiki/concepts/qlib-alpha158.md` — Alpha158 baseline factor set documentation
+- `wiki/concepts/regime-detection.md` — HMM regime detection with validation criteria
+- `wiki/concepts/factor-scoring.md` — IC/ICIR factor validation methodology
+- `wiki/concepts/polygon-data-layer.md` — Data layer architecture (all free sources)
+- `wiki/INDEX.md` — updated with all 4 concept pages
+- `wiki/.meta/last_compiled` — set to `2026-05-04T12:08:00+08:00`
+- `raw/` — scanned, empty (no new materials to ingest)
