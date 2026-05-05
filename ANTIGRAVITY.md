@@ -8,17 +8,71 @@
 
 ## Session Protocol
 
-### START (every session, no exceptions)
-1. Read `wiki/hot.md` — 500-word context cache, costs ~500 tokens
-2. Read `docs/PRD.md` — identify active phase and any changed checkboxes
-3. Read last 3 entries of `docs/CHANGELOG.md` — what changed recently
-4. If the task touches a concept in `wiki/`, read that concept page before proceeding
-5. If the task touches a module, run GitNexus on it to verify current structure
+### START (every session, no exceptions — execute all 7 steps before touching any file)
 
-### END (every session where any file was touched)
-1. Overwrite `wiki/hot.md` completely — keep under 500 words, reflect current state
-2. Append to `docs/CHANGELOG.md` — one entry, accurate date, no batching
-3. Append to `wiki/log.md` — one entry at TOP, operation type + what changed
+1. **Git state check**
+   ```bash
+   git log --oneline -5
+   git status
+   ```
+   If there are uncommitted changes from a previous session, commit them first:
+   ```bash
+   git add -A && git commit -m "chore: uncommitted changes from previous session"
+   ```
+
+2. **Read wiki/hot.md** — 500-word context cache. This is the primary bootstrap. Read fully before anything else.
+
+3. **Read docs/PRD.md** — identify the active phase, its acceptance criteria, and which checkboxes are complete vs pending.
+
+4. **Read docs/CHANGELOG.md last 3 entries** — understand what changed recently and what was left incomplete.
+
+5. **Run GitNexus on active phase directory**
+   ```bash
+   gitnexus analyze <active-phase-dir>/
+   ```
+   If Phase 0: `gitnexus analyze .` (whole repo — no code yet)
+   Report the import graph and any structural issues before proceeding.
+
+6. **Query wiki for relevant concepts**
+   If the task touches any concept (regime, factors, signals, portfolio, execution):
+   ```bash
+   $QMD wiki/ "<concept keyword>"
+   ```
+   Then read the returned pages. Maximum 5 pages per query.
+
+7. **Check Obsidian sync** (if Local REST API is online)
+   ```bash
+   curl -sk -H "Authorization: Bearer $OBSIDIAN_KEY" "https://127.0.0.1:27124/vault/wiki/hot.md" | head -30
+   ```
+   Confirm Obsidian and filesystem are in sync. If they diverge, filesystem is canonical.
+
+### END (every session where any file was touched — all 5 steps mandatory)
+
+1. **Overwrite wiki/hot.md completely**
+   - Under 500 words
+   - Sections: Last Updated, Current State, Key Known Issues, Active Threads, Recent Changes
+   - Reflect actual current state — not aspirational
+
+2. **Append to docs/CHANGELOG.md**
+   Format:
+   ```
+   ## [YYYY-MM-DD] — <session summary in one line>
+   - <bullet per meaningful change>
+   ```
+   Never edit past entries.
+
+3. **Append to wiki/log.md at TOP**
+   Format: `## [YYYY-MM-DD] <operation type> | <title>`
+   Operation types: ingest | query | lint | migration | arch | feat | fix | chore
+
+4. **Update wiki/index.md** if any wiki pages were created, modified, or deleted.
+
+5. **Commit**
+   ```bash
+   git add -A
+   git commit -m "<type>: <description>"
+   ```
+   Use commit convention from ANTIGRAVITY.md. Canonical doc changes in separate commits from code.
 
 ---
 
@@ -191,6 +245,131 @@ Run GitNexus before editing any module to verify current structure. When a phase
 2. Create or update `wiki/modules/<module>.md` for each new module
 3. Update `wiki/flows/` with any new data flow
 4. Update `docs/ARCHITECTURE.md` module dependency table
+
+---
+
+## GitNexus Decision Protocol
+
+GitNexus is the structural oracle. Consult it before making any architectural decision.
+
+### When to run GitNexus
+
+| Trigger | Command |
+|---------|---------|
+| Before editing any module file | `gitnexus analyze <module-dir>/` |
+| Before adding a new import/dependency | `gitnexus analyze <file>` |
+| Before a phase completes | `gitnexus analyze <phase-dir>/` |
+| After any refactor | `gitnexus analyze .` |
+| Any time structure feels uncertain | `gitnexus analyze .` |
+
+### How to use the output
+
+1. Read the import graph — identify all upstream and downstream dependencies of the file you're about to touch
+2. If the change affects a downstream module, check its wiki page first: `$QMD wiki/ "<module name>"`
+3. If no wiki page exists for an affected module, create a stub before making the change
+4. If GitNexus reveals a circular dependency or unexpected coupling, file an ADR before proceeding:
+   `docs/DECISIONS.md → ADR-00N: <issue title>`
+5. After the change, re-run GitNexus to confirm the graph updated as expected
+
+### Phase completion gate
+
+Before marking any phase checkbox in docs/PRD.md as complete:
+1. Run `gitnexus analyze <phase-dir>/` — import graph must be clean (no unresolved imports, no circular deps)
+2. Run `lint wiki` — no orphan pages for modules in this phase
+3. All acceptance criteria in PRD.md for this phase must be verifiably met
+4. Only then: update PRD.md checkbox, create wiki/modules/ pages, update wiki/flows/, commit
+
+---
+
+## Continuous Wiki Maintenance
+
+The wiki is a live system, not a documentation afterthought. Every substantive action has a wiki consequence.
+
+### Automatic wiki triggers
+
+| Action | Wiki consequence |
+|--------|-----------------|
+| New file created in any phase dir | Create `wiki/modules/<name>.md` stub |
+| Function/class significantly changed | Update relevant `wiki/modules/<name>.md` |
+| New concept encountered (algorithm, technique, data source) | Create `wiki/concepts/<name>.md` |
+| Paper read or referenced | `ingest` it: create `wiki/papers/<name>.md` |
+| Bug discovered | Add to `wiki/gaps/_index.md` |
+| Bug resolved | Update gap entry, update relevant concept/module page |
+| ADR written | Add navigation stub to `wiki/decisions/_index.md` |
+| Phase completed | Full wiki/modules/ sweep for all modules in that phase |
+| Any query answered | Consider `/save` if the answer has lasting value |
+
+### Lint schedule
+
+Run `lint wiki` every 10 ingest operations or at the start of every new phase, whichever comes first.
+After lint: commit with `wiki: lint — N fixes`.
+
+### Hot.md discipline
+
+hot.md is overwritten, never appended. It must answer these questions at all times:
+- What phase are we in and what is the next concrete step?
+- What are the 2-3 most important open issues?
+- What changed in the last session?
+- What should the next session start with?
+
+If hot.md cannot answer all four, it is incomplete — rewrite it.
+
+### Obsidian sync via Local REST API
+
+When Obsidian is open and Local REST API is active, use it to patch frontmatter without rewriting entire files:
+
+```bash
+# Mark a concept page as mature
+curl -sk -X PATCH -H "Authorization: Bearer $OBSIDIAN_KEY" \
+  -H "Operation: replace" -H "Target-Type: frontmatter" \
+  -H "Target: status" -H "Content-Type: application/json" \
+  --data '"mature"' "https://127.0.0.1:27124/vault/wiki/concepts/<page>.md"
+
+# Update the updated date on any wiki page
+curl -sk -X PATCH -H "Authorization: Bearer $OBSIDIAN_KEY" \
+  -H "Operation: replace" -H "Target-Type: frontmatter" \
+  -H "Target: updated" -H "Content-Type: application/json" \
+  --data '"2026-05-05"' "https://127.0.0.1:27124/vault/wiki/concepts/<page>.md"
+```
+
+Always patch frontmatter via API when Obsidian is open — avoids file conflicts from Obsidian's own write cache.
+
+---
+
+## Skill Invocation Rules
+
+Before executing any wiki operation, read the corresponding SKILL.md. Do not improvise wiki operations from memory.
+
+### Mandatory reads by trigger
+
+| User says | Read first | Then execute |
+|-----------|-----------|--------------|
+| "ingest [anything]" | `skills/wiki-ingest/SKILL.md` | Full ingest procedure |
+| "what do I know about X" | `skills/wiki-query/SKILL.md` | Query procedure |
+| "lint wiki" | `skills/wiki-lint/SKILL.md` | Lint procedure |
+| "/save" | `skills/save/SKILL.md` | Save procedure |
+| "/autoresearch [topic]" | `skills/autoresearch/SKILL.md` | Full autonomous loop |
+| "/canvas" | `skills/canvas/SKILL.md` | Canvas creation |
+| "fold [page]" | `skills/wiki-fold/SKILL.md` | Fold procedure |
+| Any wiki op | `skills/WIKI.md` | Schema reference |
+
+### Autoresearch usage
+
+`/autoresearch` runs a full autonomous loop: web search → fetch → synthesize → ingest → update wiki. Use it when:
+- A new technique or algorithm is referenced that has no wiki page
+- A concept page is at "seed" status and needs development
+- Akshay asks "research X" with no specific source
+
+Always confirm the autoresearch plan before executing — it can generate many pages. Cap at 5 pages per run unless Akshay explicitly approves more.
+
+### Canvas usage
+
+Use `/canvas` to create visual maps when:
+- A new phase begins (architecture overview canvas)
+- A complex data flow needs visualization
+- Akshay asks for a system overview
+
+Save canvases to `wiki/meta/<name>.canvas`.
 
 ---
 

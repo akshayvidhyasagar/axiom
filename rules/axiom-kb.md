@@ -159,6 +159,31 @@ The wiki system uses AgriciDaniel/claude-obsidian. Full schema in `skills/WIKI.m
 - Every wiki page requires YAML frontmatter — no exceptions
 - Run `qmd wiki/ "<query>"` before manually scanning pages
 
+
+### Session invariants (non-negotiable)
+
+These execute in every session regardless of task scope:
+
+**START invariants:**
+- git log --oneline -5 before touching anything
+- wiki/hot.md read in full
+- gitnexus run on active phase directory
+- qmd query for any concept touched
+
+**END invariants:**
+- wiki/hot.md overwritten (not appended)
+- docs/CHANGELOG.md appended
+- wiki/log.md prepended
+- git commit made
+- No session ends with uncommitted changes
+
+**Tool priority:**
+1. GitNexus for structural decisions
+2. qmd for concept lookup
+3. Obsidian REST API for frontmatter patches (when vault is open)
+4. Direct file edit for content changes
+5. skill SKILL.md read before any wiki operation
+
 ### Phase → wiki sync
 When `docs/PRD.md` phase checkbox changes to complete:
 1. Create `wiki/modules/<module-name>.md` for each module in that phase
