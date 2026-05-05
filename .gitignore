@@ -4,3 +4,13 @@ __pycache__/
 .DS_Store
 axiom_report.html
 .gitnexus
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.obsidian/plugins/*/data.json
+!.obsidian/snippets/
+!.obsidian/snippets/**
+!.obsidian/app.json
+!.obsidian/appearance.json
+!.obsidian/community-plugins.json
+!.obsidian/core-plugins.json
