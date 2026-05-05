@@ -189,6 +189,7 @@
   },
   "active": "0e97adf2546c3a6a",
   "lastOpenFiles": [
+    "wiki/meta/dashboard.md",
     "backtest/results",
     "backtest",
     "skills/wiki-query/references",
@@ -199,7 +200,6 @@
     "wiki/sources",
     "wiki/meta",
     "wiki/gaps",
-    "wiki/papers",
     "CLAUDE.md",
     "skills/WIKI.md",
     "README.md",

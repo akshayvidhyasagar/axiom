@@ -56,21 +56,36 @@ AXIOM/
 │   └── CHANGELOG.md         ← chronological change log
 │
 ├── wiki/                    ← Obsidian-compatible knowledge vault
-│   ├── INDEX.md             ← vault entry point
-│   ├── .meta/
-│   │   └── last_compiled    ← wiki compilation timestamp
-│   └── concepts/
-│       ├── qlib-alpha158.md
-│       ├── regime-detection.md
-│       ├── factor-scoring.md
-│       └── polygon-data-layer.md
+│   ├── index.md             ← master catalog
+│   ├── hot.md               ← session context cache (~500 words)
+│   ├── log.md               ← append-only operation log
+│   ├── concepts/
+│   │   ├── qlib-alpha158.md
+│   │   ├── regime-detection.md
+│   │   ├── factor-scoring.md
+│   │   └── polygon-data-layer.md
+│   ├── modules/             ← one page per AXIOM module
+│   ├── decisions/           ← ADR navigation
+│   ├── papers/              ← research paper summaries
+│   ├── gaps/                ← open questions
+│   ├── flows/               ← data flow diagrams
+│   ├── sources/             ← ingested source summaries
+│   └── meta/                ← dashboard, lint reports
 │
 ├── rules/                   ← Antigravity knowledge-base rules
 │   └── axiom-kb.md
 │
-├── skills/                  ← Antigravity skill definitions
-│   └── llm-wiki-compiler/
-│       └── SKILL.md
+├── skills/                  ← claude-obsidian skill definitions
+│   ├── WIKI.md              ← master schema reference
+│   ├── wiki/SKILL.md
+│   ├── wiki-ingest/SKILL.md
+│   ├── wiki-query/SKILL.md
+│   ├── wiki-lint/SKILL.md
+│   ├── wiki-fold/SKILL.md
+│   ├── save/SKILL.md
+│   ├── autoresearch/SKILL.md
+│   ├── canvas/SKILL.md
+│   └── obsidian-markdown/SKILL.md
 │
 ├── raw/                     ← wiki ingestion drop zone (papers, docs, findings)
 │   └── .gitkeep

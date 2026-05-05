@@ -135,3 +135,44 @@ No custom factor enters the model without passing IC ≥ 0.02 validation.
 
 ### R7: Keep the changelog current
 Every session that modifies code or documentation must append a CHANGELOG entry before committing.
+
+---
+
+## Wiki Operations (claude-obsidian)
+
+The wiki system uses AgriciDaniel/claude-obsidian. Full schema in `skills/WIKI.md`.
+
+### Skill routing
+- Ingest: `skills/wiki-ingest/SKILL.md`
+- Query: `skills/wiki-query/SKILL.md` — run `qmd wiki/ "<query>"` first
+- Lint: `skills/wiki-lint/SKILL.md`
+- Save: `skills/save/SKILL.md`
+- Autoresearch: `skills/autoresearch/SKILL.md`
+- Canvas: `skills/canvas/SKILL.md`
+- Fold: `skills/wiki-fold/SKILL.md`
+
+### Invariants
+- `.raw/` is read-only — never write to it
+- `wiki/hot.md` is overwritten every session end — never append
+- `wiki/log.md` is append-only — new entries at TOP — never edit past entries
+- All internal wiki links use `[[wikilinks]]` — never markdown paths
+- Every wiki page requires YAML frontmatter — no exceptions
+- Run `qmd wiki/ "<query>"` before manually scanning pages
+
+### Phase → wiki sync
+When `docs/PRD.md` phase checkbox changes to complete:
+1. Create `wiki/modules/<module-name>.md` for each module in that phase
+2. Update `wiki/flows/` with new data flow from that phase
+3. Update `wiki/index.md`
+4. Append entry to `wiki/log.md` at TOP
+
+---
+
+## Tooling
+
+### qmd — Local Wiki Search
+Install: `npm install -g @tobilu/qmd`
+Usage: `qmd wiki/ "<query>"` — fast hybrid search, use before manual scanning
+
+### GitNexus
+Usage: `gitnexus analyze <path>` — module import graph, run before editing any module
