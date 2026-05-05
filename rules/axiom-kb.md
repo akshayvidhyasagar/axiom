@@ -8,10 +8,10 @@
 
 The AXIOM wiki is a living second brain:
 
-1. Raw material lands in `raw/` (papers, findings, docs, links)
-2. Antigravity compiles it into structured `wiki/concepts/` pages with cross-links
-3. Obsidian surfaces the graph — Akshay navigates it visually
-4. Canonical docs (`ARCHITECTURE`, `CHANGELOG`, `DECISIONS`, `PRD`) stay in sync with reality
+1. The vault is `AXIOM/` and uses standard Obsidian syntax.
+2. The user will use `/wiki-ingest`, `/wiki-query`, `/wiki-lint`, etc. to interact with it.
+3. Every session must read `wiki/hot.md` to get context.
+4. Every session that discovers something new must use `/save` to store it.
 
 The wiki is NOT documentation. It is **compiled knowledge** — concepts distilled from sources, linked to each other, and grounded in AXIOM's implementation. If a wiki page could belong to any project, it is too generic.
 
@@ -50,7 +50,7 @@ Append to `docs/CHANGELOG.md`:
 - <what structural change was made>
 
 ### Wiki Changes (if any)
-- WikiCompile: <created/updated> `<page>.md` — <one-line summary>
+- <created/updated> `<page>.md` — <one-line summary>
 
 ### Decisions (if any)
 - ADR-00N: <decision title> — see docs/DECISIONS.md
@@ -124,8 +124,8 @@ Do not start work on a phase until the previous phase's acceptance criteria are 
 ### R3: Benchmark table integrity
 Never fill benchmark table values with prototype results. Only Qlib-pipeline outputs from committed code are valid.
 
-### R4: Wiki pages are LLM-compiled
-Wiki concept pages may be edited manually, but edits will be overwritten on next compilation unless `raw/` source material is updated.
+### R4: Wiki pages follow claude-obsidian schema
+Wiki pages use YAML frontmatter and [[wikilinks]]. Ingestion, query, and lint operations use the new `claude-obsidian` skills. See `skills/WIKI.md` for the full schema.
 
 ### R5: Point-in-time discipline is non-negotiable
 Any data source must document its PIT boundary. Any backtest violating PIT is invalid. See ADR-005.

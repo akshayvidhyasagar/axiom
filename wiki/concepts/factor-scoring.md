@@ -1,6 +1,17 @@
-# Factor Scoring
+---
+type: concept
+title: "Factor Scoring"
+created: 2026-05-04
+updated: 2026-05-04
+tags:
+  - concept
+status: developing
+related:
+  - "[[qlib-alpha158]]"
+  - "[[regime-detection]]"
+---
 
-> Related: [[qlib-alpha158]], [[regime-detection]]
+# Factor Scoring
 
 ## What It Is
 

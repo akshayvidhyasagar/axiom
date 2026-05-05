@@ -1,0 +1,228 @@
+{
+  "main": {
+    "id": "cd8773c526445ead",
+    "type": "split",
+    "children": [
+      {
+        "id": "da8b5191bba68c87",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0e97adf2546c3a6a",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "3100db7876017a30",
+    "type": "split",
+    "children": [
+      {
+        "id": "61faf694047604f7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "50f2703bb8ff38f3",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "daf1e2af27e8ef16",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": true,
+                "collapseAll": false,
+                "extraContext": true,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "8e958962ee11eed7",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "535fd00fc5799f1d",
+    "type": "split",
+    "children": [
+      {
+        "id": "a91da9c2a47a9a42",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5f7b6f059d30246b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "0f5c5c8c83563d6a",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "bcd8cfb45c1bb4fe",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "199c132541e37197",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "4dd71209a9b21624",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          },
+          {
+            "id": "656319afdc37e68d",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "git-view"
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "0e97adf2546c3a6a",
+  "lastOpenFiles": [
+    "backtest/results",
+    "backtest",
+    "skills/wiki-query/references",
+    "skills/canvas/references",
+    "skills/wiki/references",
+    "skills/wiki-lint/references",
+    "skills/wiki-ingest/references",
+    "wiki/sources",
+    "wiki/meta",
+    "wiki/gaps",
+    "wiki/papers",
+    "CLAUDE.md",
+    "skills/WIKI.md",
+    "README.md",
+    "Untitled.canvas",
+    "wiki/log.md",
+    "wiki/hot.md",
+    "wiki/flows/_index.md",
+    "wiki/modules/_index.md",
+    "wiki/decisions/_index.md",
+    "skills/obsidian-markdown/SKILL.md",
+    "skills/canvas/SKILL.md",
+    "skills/autoresearch/SKILL.md",
+    "skills/save/SKILL.md",
+    "skills/wiki-fold/SKILL.md",
+    "skills/wiki-lint/SKILL.md",
+    "skills/wiki-query/SKILL.md",
+    "skills/wiki-ingest/SKILL.md",
+    "skills/wiki/SKILL.md",
+    "last_compiled.md",
+    "Last Updated.md",
+    "rules/axiom-kb.md",
+    "2026-05-04.md",
+    "docs/ARCHITECTURE.md",
+    "docs/CHANGELOG.md"
+  ]
+}

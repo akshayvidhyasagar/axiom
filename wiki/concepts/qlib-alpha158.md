@@ -1,6 +1,17 @@
-# Qlib Alpha158
+---
+type: concept
+title: "Qlib Alpha158"
+created: 2026-05-04
+updated: 2026-05-04
+tags:
+  - concept
+status: developing
+related:
+  - "[[factor-scoring]]"
+  - "[[regime-detection]]"
+---
 
-> Related: [[factor-scoring]], [[regime-detection]]
+# Qlib Alpha158
 
 ## What It Is
 

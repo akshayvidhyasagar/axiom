@@ -1,6 +1,17 @@
-# Regime Detection
+---
+type: concept
+title: "Regime Detection"
+created: 2026-05-04
+updated: 2026-05-04
+tags:
+  - concept
+status: developing
+related:
+  - "[[qlib-alpha158]]"
+  - "[[factor-scoring]]"
+---
 
-> Related: [[qlib-alpha158]], [[factor-scoring]]
+# Regime Detection
 
 ## What It Is
 

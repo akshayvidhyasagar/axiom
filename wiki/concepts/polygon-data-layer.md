@@ -1,6 +1,17 @@
-# Data Layer Architecture
+---
+type: concept
+title: "Data Layer Architecture"
+created: 2026-05-04
+updated: 2026-05-04
+tags:
+  - concept
+status: developing
+related:
+  - "[[qlib-alpha158]]"
+  - "[[factor-scoring]]"
+---
 
-> Related: [[qlib-alpha158]], [[factor-scoring]]
+# Data Layer Architecture
 
 ## What It Is
 

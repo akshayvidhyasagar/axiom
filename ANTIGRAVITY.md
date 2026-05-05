@@ -34,6 +34,12 @@ This project is indexed by GitNexus as **AXIOM**. Use GitNexus MCP tools to unde
 
 # AXIOM — Permanent Agent Protocol
 
+## Context & Memory
+AXIOM uses the `claude-obsidian` skill suite for its knowledge base.
+- Read `wiki/hot.md` for recent context.
+- Use `/wiki-query` to search the knowledge base.
+- Use `/save` to file new architectural decisions or synthesis.
+
 ## Session START (every session, no exceptions)
 
 1. Read `docs/PRD.md` → identify current active phase
@@ -71,9 +77,8 @@ This project is indexed by GitNexus as **AXIOM**. Use GitNexus MCP tools to unde
 | `docs/ARCHITECTURE.md` | Module map and dependencies |
 | `docs/DECISIONS.md` | ADRs — always check before making architectural choices |
 | `docs/CHANGELOG.md` | Session log — append-only |
-| `wiki/INDEX.md` | Knowledge vault entry point |
+| `wiki/index.md` | Knowledge vault entry point |
 | `rules/axiom-kb.md` | Full maintenance rules (Second Brain protocol) |
-| `skills/llm-wiki-compiler/SKILL.md` | Wiki compilation procedure |
 
 ---
 
@@ -137,7 +142,7 @@ chore: CHANGELOG sync          # maintenance
 
 ## What Akshay Does Manually
 
-- Open Obsidian → "Open folder as vault" → `AXIOM/wiki/`
+- Open Obsidian → "Open folder as vault" → `AXIOM/`
 - Review graph view after wiki compiles for orphans/hubs
 - Drop raw materials into `raw/` then say "compile wiki"
 - Confirm phase completion: "mark Phase N complete"
