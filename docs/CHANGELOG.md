@@ -60,3 +60,18 @@ Format: `[YYYY-MM-DD] Category — Description`
 - Updated `ANTIGRAVITY.md` — Integrated Karpathy-style behavioral guidelines for reducing common LLM coding mistakes (Think Before Coding, Simplicity First, Surgical Changes, Goal-Driven Execution).
 - Updated `ANTIGRAVITY.md` — Added step to Session START protocol to strictly follow these guidelines.
 
+---
+
+## [2026-05-05] Maintenance — Protocol Hardening & System Verification
+
+### Code Changes
+- Updated `ANTIGRAVITY.md` — Expanded Session START to 7 steps, END to 5 steps. Encoded GitNexus Decision Protocol, Continuous Wiki Maintenance, and Skill Invocation Rules.
+- Updated `rules/axiom-kb.md` — Added Session Invariants (non-negotiable START/END routines).
+- Updated `docs/ARCHITECTURE.md` — Synchronized repository tree with current wiki structure and claude-obsidian skills.
+- Updated `.gitignore` — Added logic to track core Obsidian config while ignoring volatile cache/workspace files.
+- Removed legacy artifacts (`llm-wiki-compiler`, `last_compiled.md`) and auto-generated root clutter.
+
+### Infrastructure
+- Verified `qmd` global installation.
+- Synchronized `.obsidian/plugins` and configurations.
+

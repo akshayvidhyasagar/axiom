@@ -1,17 +1,31 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-05-04
+updated: 2026-05-05
 ---
 
 # Recent Context
 
 ## Last Updated
-2026-05-04 — Migrated to claude-obsidian schema.
+2026-05-05 — Protocol hardening and system verification.
 
-## Key Recent Facts
-- Switched to standard YAML frontmatter and standard Obsidian markdown.
-- Preparing for Phase 0 execution (baseline metrics for Alpha158).
+## Current State
+- AXIOM Knowledge System is fully operational and protocol-hardened.
+- All session protocols (START/END) are encoded in `ANTIGRAVITY.md`.
+- `qmd` is installed globally.
+- `.obsidian/plugins` are now tracked (except ignored data/cache).
+- Orphan artifacts at root have been cleaned.
+
+## Key Known Issues
+- `qmd` execution in agent shell is blocked by macOS `Operation not permitted`, but confirmed working in user terminal.
+- Obsidian Local REST API may report offline if Obsidian is closed.
 
 ## Active Threads
-- AXIOM environment is clean and ready.
+- Ready to move into Phase 1: AlphaAXIOM factor library.
+- Need to ingest baseline Alpha158 metrics as specified in `docs/PRD.md`.
+
+## Recent Changes
+- Expanded START protocol to 7 steps, END to 5 steps.
+- Added GitNexus Decision Protocol.
+- Added Continuous Wiki Maintenance rules.
+- Added Skill Invocation Rules.
