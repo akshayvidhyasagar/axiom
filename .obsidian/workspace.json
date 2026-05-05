@@ -208,7 +208,7 @@
                 "state": {
                   "type": "webviewer",
                   "state": {
-                    "url": "https://coddingtonbear.github.io/obsidian-local-rest-api/",
+                    "url": "https://coddingtonbear.github.io/obsidian-local-rest-api/#/Vault%20Files/get_vault__filename_",
                     "title": "Local Rest API for Obsidian: Interactive API Documentation",
                     "mode": "webview"
                   },
