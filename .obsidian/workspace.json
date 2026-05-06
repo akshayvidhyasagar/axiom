@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "bb3238577cec039f",
+        "id": "2d0ce6f1b8b4e80d",
         "type": "tabs",
         "children": [
           {
-            "id": "31957a73eb81e4e7",
+            "id": "64bd0fc02f8f109e",
             "type": "leaf",
             "state": {
               "type": "graph",
@@ -190,46 +190,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "floating": {
-    "id": "e458fef1d0e241a2",
-    "type": "floating",
-    "children": [
-      {
-        "id": "32405ca787bd3f47",
-        "type": "window",
-        "children": [
-          {
-            "id": "78fbc5ac9931d51e",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "7af7905cda68ff45",
-                "type": "leaf",
-                "state": {
-                  "type": "webviewer",
-                  "state": {
-                    "url": "https://coddingtonbear.github.io/obsidian-local-rest-api/#/Vault%20Files/get_vault__filename_",
-                    "title": "Local Rest API for Obsidian: Interactive API Documentation",
-                    "mode": "webview"
-                  },
-                  "icon": "globe-2",
-                  "title": "Local Rest API for Obsidian: Interactive API Documentation"
-                }
-              }
-            ]
-          }
-        ],
-        "direction": "vertical",
-        "x": 343,
-        "y": 90,
-        "width": 1024,
-        "height": 800,
-        "maximize": false,
-        "zoom": 0
-      }
-    ]
-  },
-  "active": "7af7905cda68ff45",
+  "active": "64bd0fc02f8f109e",
   "lastOpenFiles": [
     "Untitled 1.canvas",
     "Untitled 1.base",

@@ -1,4 +1,5 @@
 # AXIOM — AlphaAXIOM Trading System
+
 **Agent:** Antigravity
 **Mode:** B (GitHub/Repo) + E (Research)
 **Owner:** Akshay Vidhyasagar
@@ -11,11 +12,14 @@
 ### START (every session, no exceptions — execute all 7 steps before touching any file)
 
 1. **Git state check**
+
    ```bash
    git log --oneline -5
    git status
    ```
+
    If there are uncommitted changes from a previous session, commit them first:
+
    ```bash
    git add -A && git commit -m "chore: uncommitted changes from previous session"
    ```
@@ -27,23 +31,29 @@
 4. **Read docs/CHANGELOG.md last 3 entries** — understand what changed recently and what was left incomplete.
 
 5. **Run GitNexus on active phase directory**
+
    ```bash
    gitnexus analyze <active-phase-dir>/
    ```
+
    If Phase 0: `gitnexus analyze .` (whole repo — no code yet)
    Report the import graph and any structural issues before proceeding.
 
 6. **Query wiki for relevant concepts**
    If the task touches any concept (regime, factors, signals, portfolio, execution):
+
    ```bash
    $QMD wiki/ "<concept keyword>"
    ```
+
    Then read the returned pages. Maximum 5 pages per query.
 
 7. **Check Obsidian sync** (if Local REST API is online)
+
    ```bash
    curl -sk -H "Authorization: Bearer $OBSIDIAN_KEY" "https://127.0.0.1:27124/vault/wiki/hot.md" | head -30
    ```
+
    Confirm Obsidian and filesystem are in sync. If they diverge, filesystem is canonical.
 
 ### END (every session where any file was touched — all 5 steps mandatory)
@@ -55,10 +65,12 @@
 
 2. **Append to docs/CHANGELOG.md**
    Format:
+
    ```
    ## [YYYY-MM-DD] — <session summary in one line>
    - <bullet per meaningful change>
    ```
+
    Never edit past entries.
 
 3. **Append to wiki/log.md at TOP**
@@ -68,10 +80,12 @@
 4. **Update wiki/index.md** if any wiki pages were created, modified, or deleted.
 
 5. **Commit**
+
    ```bash
    git add -A
    git commit -m "<type>: <description>"
    ```
+
    Use commit convention from ANTIGRAVITY.md. Canonical doc changes in separate commits from code.
 
 ---
@@ -175,6 +189,7 @@ Read `skills/WIKI.md` before any wiki operation.
 | `fold [page]` | Compress long page to summary | `skills/wiki-fold/SKILL.md` |
 
 ### Query read order (token budget)
+
 1. `wiki/hot.md` (~500 tokens)
 2. `wiki/index.md` (~1000 tokens)
 3. `wiki/<domain>/_index.md` (~300 tokens)
@@ -183,6 +198,7 @@ Read `skills/WIKI.md` before any wiki operation.
 Run `qmd wiki/ "<query>"` before manually scanning pages.
 
 ### Wiki page frontmatter (required on every page)
+
 ```yaml
 ---
 type: <concept|module|decision|paper|source|flow|gap|meta>
@@ -208,12 +224,14 @@ sources: []
 **CSS snippets:** `.obsidian/snippets/vault-colors.css` — already enabled.
 
 **Required community plugins:**
+
 - Dataview — powers wiki/meta/dashboard.md
 - Templater — consistent page creation
 - Obsidian Git — auto-commit every 15 minutes
 - Local REST API — enables direct file read/write via curl
 
 **REST API usage** (when MCP not available):
+
 ```bash
 API="https://127.0.0.1:27124"
 KEY="<your-api-key>"
@@ -241,6 +259,7 @@ curl -sk -X PATCH -H "Authorization: Bearer $KEY" \
 ## GitNexus Integration
 
 Run GitNexus before editing any module to verify current structure. When a phase completes:
+
 1. Run GitNexus on completed modules → get import graph
 2. Create or update `wiki/modules/<module>.md` for each new module
 3. Update `wiki/flows/` with any new data flow
@@ -274,6 +293,7 @@ GitNexus is the structural oracle. Consult it before making any architectural de
 ### Phase completion gate
 
 Before marking any phase checkbox in docs/PRD.md as complete:
+
 1. Run `gitnexus analyze <phase-dir>/` — import graph must be clean (no unresolved imports, no circular deps)
 2. Run `lint wiki` — no orphan pages for modules in this phase
 3. All acceptance criteria in PRD.md for this phase must be verifiably met
@@ -307,6 +327,7 @@ After lint: commit with `wiki: lint — N fixes`.
 ### Hot.md discipline
 
 hot.md is overwritten, never appended. It must answer these questions at all times:
+
 - What phase are we in and what is the next concrete step?
 - What are the 2-3 most important open issues?
 - What changed in the last session?
@@ -356,6 +377,7 @@ Before executing any wiki operation, read the corresponding SKILL.md. Do not imp
 ### Autoresearch usage
 
 `/autoresearch` runs a full autonomous loop: web search → fetch → synthesize → ingest → update wiki. Use it when:
+
 - A new technique or algorithm is referenced that has no wiki page
 - A concept page is at "seed" status and needs development
 - Akshay asks "research X" with no specific source
@@ -365,6 +387,7 @@ Always confirm the autoresearch plan before executing — it can generate many p
 ### Canvas usage
 
 Use `/canvas` to create visual maps when:
+
 - A new phase begins (architecture overview canvas)
 - A complex data flow needs visualization
 - Akshay asks for a system overview
@@ -393,6 +416,7 @@ Canonical doc changes in separate commits from code changes. Never batch wiki + 
 ## Cross-Project Access (Vellanthra, Polymatic)
 
 Add to those projects' ANTIGRAVITY.md:
+
 ```
 ## AXIOM Wiki
 Path: ~/path/to/AXIOM/wiki/
@@ -404,11 +428,6 @@ Do NOT read for general coding questions unrelated to AXIOM concepts.
 
 ## Akshay's Manual Responsibilities
 
-1. Open Obsidian → Open Folder as Vault → select `AXIOM/` (the repo root, not wiki/)
-2. Install community plugins: Dataview, Templater, Obsidian Git, Local REST API
-3. CSS snippet vault-colors.css — already enabled at `.obsidian/snippets/`
-4. Set graph view group colors per `skills/WIKI.md` Section 7
-5. Install Obsidian Web Clipper → configure save path to `.raw/`
-6. After any wiki compile: check graph view for orphan nodes, report them
-7. Phase sign-off: say "mark Phase N complete" — Antigravity handles all file updates
-8. Copy Local REST API key into a local `.env` file — never commit it
+1. Install Obsidian Web Clipper → configure save path to `.raw/`
+2. After any wiki compile: check graph view for orphan nodes, report them
+3. Phase sign-off: say "mark Phase N complete" — Antigravity handles all file updates
