@@ -10,11 +10,12 @@
       "command": "npx",
       "args": [
         "-y",
-        "obsidian-rest-api-mcp"
+        "obsidian-mcp-server"
       ],
       "env": {
         "OBSIDIAN_API_KEY": "26b781faa6e42e5f477d7f04cdc22847ff732ef3211efdf1610b0960feb3414f",
-        "OBSIDIAN_HOST": "http://127.0.0.1:27123"
+        "OBSIDIAN_BASE_URL": "http://127.0.0.1:27123",
+        "OBSIDIAN_VERIFY_SSL": "false"
       }
     },
     "neon": {
@@ -53,9 +54,9 @@
       ]
     },
     "airweave": {
-      "command": "npx",
+      "command": "node",
       "args": [
-        "airweave-mcp-search"
+        "/Users/akshayvidhyasagar/AXIOM/.antigravity/scripts/airweave-wrapper.js"
       ],
       "env": {
         "AIRWEAVE_API_KEY": "YtyU6xIMaDCPuev5ugSAQFirNt0ksY7yC1Dp6lP5lDM",

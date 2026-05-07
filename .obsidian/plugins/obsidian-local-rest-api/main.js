@@ -56278,18 +56278,23 @@ var require_map2 = __commonJS({
         }
       };
       const stack = [];
-      let currentPosition = 0;
+      const tokenOffsets = [];
+      let runningOffset = 0;
+      for (const token of tokens) {
+        tokenOffsets.push(runningOffset);
+        runningOffset += token.raw.length;
+      }
       tokens.forEach((token, index) => {
         if (token.type === "heading") {
           const headingToken = token;
-          const startHeading = document2.indexOf(headingToken.raw.trim(), currentPosition);
-          const endHeading = startHeading + headingToken.raw.trim().length + 1;
+          const startHeading = tokenOffsets[index];
+          const endHeading = startHeading + headingToken.raw.trimEnd().length + 1;
           const headingLevel = headingToken.depth;
           const startContent = endHeading;
           let endContent = void 0;
           for (let i = index + 1; i < tokens.length; i++) {
             if (tokens[i].type === "heading" && tokens[i].depth <= headingLevel) {
-              endContent = document2.indexOf(tokens[i].raw.trim(), startContent);
+              endContent = tokenOffsets[i];
               break;
             }
           }
@@ -56318,7 +56323,6 @@ var require_map2 = __commonJS({
           }
           positions[fullHeadingPath] = currentHeading;
           stack.push({ heading: fullHeadingPath, position: currentHeading });
-          currentPosition = endHeading;
         }
       });
       return positions;
@@ -58505,8 +58509,8 @@ var RequestHandler = class {
     this.api.use(import_body_parser.default.raw({ type: "*/*", limit: MaximumRequestSize }));
     this.api.route("/active/*").get(this.activeFileGet.bind(this)).put(this.activeFilePut.bind(this)).patch(this.activeFilePatch.bind(this)).post(this.activeFilePost.bind(this)).delete(this.activeFileDelete.bind(this));
     this.api.route("/vault/*").get(this.vaultGet.bind(this)).put(this.vaultPut.bind(this)).patch(this.vaultPatch.bind(this)).post(this.vaultPost.bind(this)).delete(this.vaultDelete.bind(this));
+    this.api.route("/periodic/:period/:year(\\d{4})/:month(\\d{1,2})/:day(\\d{1,2})/*").get(this.periodicGet.bind(this)).put(this.periodicPut.bind(this)).patch(this.periodicPatch.bind(this)).post(this.periodicPost.bind(this)).delete(this.periodicDelete.bind(this));
     this.api.route("/periodic/:period/*").get(this.periodicGet.bind(this)).put(this.periodicPut.bind(this)).patch(this.periodicPatch.bind(this)).post(this.periodicPost.bind(this)).delete(this.periodicDelete.bind(this));
-    this.api.route("/periodic/:period/:year/:month/:day/*").get(this.periodicGet.bind(this)).put(this.periodicPut.bind(this)).patch(this.periodicPatch.bind(this)).post(this.periodicPost.bind(this)).delete(this.periodicDelete.bind(this));
     this.api.route("/tags/").get(this.tagsGet.bind(this));
     this.api.route("/commands/").get(this.commandGet.bind(this));
     this.api.route("/commands/:commandId/").post(this.commandPost.bind(this));

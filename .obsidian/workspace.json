@@ -192,6 +192,8 @@
   },
   "active": "314d7b9bf515fcb6",
   "lastOpenFiles": [
+    "stderr.txt",
+    "stdout.txt",
     "node_modules/protobufjs/README.md",
     "CLAUDE.md",
     "package.json",
@@ -203,7 +205,6 @@
     "node_modules/gitnexus/vendor/tree-sitter-proto/node-addon-api/node_addon_api_except.stamp",
     "node_modules/gitnexus/vendor/tree-sitter-proto/node-addon-api",
     "node_modules/gitnexus/vendor/tree-sitter-proto/build/Release/obj.target/tree_sitter_proto_binding/bindings/node/binding-100f3de5.o.tmp",
-    "node_modules/gitnexus/vendor/tree-sitter-proto/build/Release/obj.target/tree_sitter_proto_binding/bindings/node",
     "node_modules/tree-sitter-dart/README.md",
     "wiki/audit-test.md",
     "wiki/test_obsidian.md",
@@ -228,7 +229,6 @@
     "node_modules/hono/README.md",
     "node_modules/tree-sitter-c-sharp/README.md",
     "node_modules/zod/README.md",
-    "node_modules/ajv/README.md",
     "Untitled 1.canvas",
     "Untitled.canvas"
   ]
