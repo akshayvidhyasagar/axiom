@@ -60,10 +60,8 @@
       ]
     },
     "airweave": {
-      "command": "node",
+      "command": "npx",
       "args": [
-        "/Users/akshayvidhyasagar/AXIOM/.antigravity/scripts/mcp-wrapper.js",
-        "npx",
         "-y",
         "airweave-mcp-search"
       ],
