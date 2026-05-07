@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 const { spawn } = require('child_process');
 
-process.stderr.write('[wrapper] Starting airweave-mcp-search wrapper...\n');
+// Silent wrapper for airweave-mcp-search
+// Redirects everything except valid JSON-RPC from stdout to stderr.
 
 const child = spawn('npx', ['-y', 'airweave-mcp-search'], {
   env: process.env,
@@ -24,24 +25,23 @@ child.stdout.on('data', (data) => {
         continue;
       }
     } catch (e) {
-      // Not JSON
+      // Not valid JSON-RPC
     }
     
     // Redirect non-JSON stdout to stderr
-    process.stderr.write('[airweave-stdout] ' + line + '\n');
+    process.stderr.write(line + '\n');
   }
 });
 
 child.stderr.on('data', (data) => {
-  process.stderr.write('[airweave-stderr] ' + data.toString());
+  process.stderr.write(data);
 });
 
 child.on('exit', (code) => {
-  process.stderr.write('[wrapper] airweave-mcp-search exited with code ' + code + '\n');
   process.exit(code);
 });
 
 child.on('error', (err) => {
-  process.stderr.write('[wrapper] Failed to start airweave-mcp-search: ' + err.message + '\n');
+  process.stderr.write(err.message + '\n');
   process.exit(1);
 });
