@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "2d0ce6f1b8b4e80d",
+        "id": "e80213b4a868a832",
         "type": "tabs",
         "children": [
           {
-            "id": "64bd0fc02f8f109e",
+            "id": "314d7b9bf515fcb6",
             "type": "leaf",
             "state": {
               "type": "graph",
@@ -70,8 +70,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -191,44 +190,46 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "64bd0fc02f8f109e",
+  "active": "314d7b9bf515fcb6",
   "lastOpenFiles": [
+    "node_modules/protobufjs/README.md",
     "CLAUDE.md",
-    "mcp_config.json",
+    "package.json",
+    "node_modules/gitnexus/vendor/tree-sitter-proto/build/Release/tree_sitter_proto_binding.node",
+    "node_modules/gitnexus/vendor/tree-sitter-proto/build/Release/obj.target/tree_sitter_proto_binding/src/parser.o",
+    "node_modules/gitnexus/vendor/tree-sitter-proto/build/Release/obj.target/tree_sitter_proto_binding/src/parser-4f9ed517.o.tmp",
+    "node_modules/gitnexus/vendor/tree-sitter-proto/build/Release/obj.target/tree_sitter_proto_binding/src",
+    "node_modules/gitnexus/vendor/tree-sitter-proto/build/Release/obj.target/tree_sitter_proto_binding/bindings/node/binding.o",
+    "node_modules/gitnexus/vendor/tree-sitter-proto/node-addon-api/node_addon_api_except.stamp",
+    "node_modules/gitnexus/vendor/tree-sitter-proto/node-addon-api",
+    "node_modules/gitnexus/vendor/tree-sitter-proto/build/Release/obj.target/tree_sitter_proto_binding/bindings/node/binding-100f3de5.o.tmp",
+    "node_modules/gitnexus/vendor/tree-sitter-proto/build/Release/obj.target/tree_sitter_proto_binding/bindings/node",
+    "node_modules/tree-sitter-dart/README.md",
+    "wiki/audit-test.md",
+    "wiki/test_obsidian.md",
+    "wiki/meta/test.canvas",
+    "node_modules/onnxruntime-node/README.md",
+    "node_modules/@huggingface/transformers/node_modules/onnxruntime-node/README.md",
+    "node_modules/@huggingface/transformers/README.md",
+    "node_modules/onnxruntime-web/README.md",
+    "node_modules/onnxruntime-web/docs/webnn-operators.md",
+    "node_modules/onnxruntime-web/docs/webgpu-operators.md",
+    "node_modules/onnxruntime-web/docs/webgl-operators.md",
+    "node_modules/onnxruntime-web/lib/onnxjs/ort-schema/flatbuffers/README.md",
+    "node_modules/@modelcontextprotocol/sdk/README.md",
+    "node_modules/gitnexus/README.md",
+    "node_modules/gitnexus/skills/gitnexus-refactoring.md",
+    "node_modules/gitnexus/skills/gitnexus-pr-review.md",
+    "node_modules/gitnexus/skills/gitnexus-impact-analysis.md",
+    "node_modules/gitnexus/skills/gitnexus-guide.md",
+    "node_modules/gitnexus/skills/gitnexus-exploring.md",
+    "node_modules/gitnexus/skills/gitnexus-debugging.md",
+    "node_modules/gitnexus/skills/gitnexus-cli.md",
+    "node_modules/hono/README.md",
+    "node_modules/tree-sitter-c-sharp/README.md",
+    "node_modules/zod/README.md",
+    "node_modules/ajv/README.md",
     "Untitled 1.canvas",
-    "Untitled 1.base",
-    "Untitled.base",
-    "Untitled.canvas",
-    "README.md",
-    "Untitled",
-    "2026-05-05.md",
-    "wiki/meta/dashboard.md",
-    "skills/WIKI.md",
-    "backtest/results",
-    "backtest",
-    "skills/wiki-query/references",
-    "skills/canvas/references",
-    "skills/wiki/references",
-    "skills/wiki-lint/references",
-    "wiki/log.md",
-    "wiki/hot.md",
-    "wiki/flows/_index.md",
-    "wiki/modules/_index.md",
-    "wiki/decisions/_index.md",
-    "skills/obsidian-markdown/SKILL.md",
-    "skills/canvas/SKILL.md",
-    "skills/autoresearch/SKILL.md",
-    "skills/save/SKILL.md",
-    "skills/wiki-fold/SKILL.md",
-    "skills/wiki-lint/SKILL.md",
-    "skills/wiki-query/SKILL.md",
-    "skills/wiki-ingest/SKILL.md",
-    "skills/wiki/SKILL.md",
-    "last_compiled.md",
-    "Last Updated.md",
-    "rules/axiom-kb.md",
-    "2026-05-04.md",
-    "docs/ARCHITECTURE.md",
-    "docs/CHANGELOG.md"
+    "Untitled.canvas"
   ]
 }
