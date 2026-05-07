@@ -70,7 +70,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -192,6 +193,7 @@
   },
   "active": "64bd0fc02f8f109e",
   "lastOpenFiles": [
+    "CLAUDE.md",
     "mcp_config.json",
     "Untitled 1.canvas",
     "Untitled 1.base",
@@ -208,8 +210,6 @@
     "skills/canvas/references",
     "skills/wiki/references",
     "skills/wiki-lint/references",
-    "skills/wiki-ingest/references",
-    "CLAUDE.md",
     "wiki/log.md",
     "wiki/hot.md",
     "wiki/flows/_index.md",
