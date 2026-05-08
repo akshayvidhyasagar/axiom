@@ -59,6 +59,16 @@
         "@modelcontextprotocol/server-sequential-thinking"
       ]
     },
+    "notion": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@notionhq/notion-mcp-server"
+      ],
+      "env": {
+        "NOTION_API_KEY": "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"
+      }
+    },
     "airweave": {
       "command": "npx",
       "args": [
