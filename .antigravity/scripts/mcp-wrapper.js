@@ -13,22 +13,36 @@ if (args.length === 0) {
 const command = args[0];
 const commandArgs = args.slice(1);
 
+const fs = require('fs');
+const logFile = '/Users/akshayvidhyasagar/AXIOM/mcp-wrapper.log';
+function log(msg) {
+  fs.appendFileSync(logFile, `[${new Date().toISOString()}] ${msg}\n`);
+}
+
 const child = spawn(command, commandArgs, {
   env: process.env,
   stdio: ['pipe', 'pipe', 'pipe']
 });
 
+log(`Started ${command} ${commandArgs.join(' ')}`);
+
+process.stdin.on('data', (data) => {
+  log(`IN: ${data.toString().trim()}`);
+});
 process.stdin.pipe(child.stdin);
 
+let stdoutBuffer = '';
 child.stdout.on('data', (data) => {
-  const content = data.toString();
-  const lines = content.split(/\r?\n/);
-  
-  for (const line of lines) {
+  log(`OUT_RAW: ${data.toString().trim()}`);
+  stdoutBuffer += data.toString();
+  let lastNewlineIndex;
+  while ((lastNewlineIndex = stdoutBuffer.indexOf('\n')) !== -1) {
+    const line = stdoutBuffer.substring(0, lastNewlineIndex);
+    stdoutBuffer = stdoutBuffer.substring(lastNewlineIndex + 1);
+    
     if (!line.trim()) continue;
     
     try {
-      // Attempt to parse as JSON to verify if it's an MCP message
       const parsed = JSON.parse(line);
       if (parsed && (parsed.jsonrpc === '2.0' || parsed.method || parsed.result || parsed.error)) {
         process.stdout.write(JSON.stringify(parsed) + '\n');
@@ -38,7 +52,6 @@ child.stdout.on('data', (data) => {
       // Not valid JSON-RPC
     }
     
-    // Redirect non-JSON stdout to stderr
     process.stderr.write(line + '\n');
   }
 });
@@ -48,10 +61,12 @@ child.stderr.on('data', (data) => {
 });
 
 child.on('exit', (code) => {
+  log(`Child exited with code ${code}`);
   process.exit(code);
 });
 
 child.on('error', (err) => {
+  log(`Child error: ${err.message}`);
   process.stderr.write('Failed to start ' + command + ': ' + err.message + '\n');
   process.exit(1);
 });

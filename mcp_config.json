@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "gitnexus": {
-      "command": "node",
+      "command": "/Users/akshayvidhyasagar/.nvm/versions/node/v24.10.0/bin/node",
       "args": [
         "/Users/akshayvidhyasagar/AXIOM/.antigravity/scripts/mcp-wrapper.js",
         "npx",
@@ -11,7 +11,7 @@
       ]
     },
     "obsidian": {
-      "command": "node",
+      "command": "/Users/akshayvidhyasagar/.nvm/versions/node/v24.10.0/bin/node",
       "args": [
         "/Users/akshayvidhyasagar/AXIOM/.antigravity/scripts/mcp-wrapper.js",
         "npx",
@@ -59,16 +59,7 @@
         "@modelcontextprotocol/server-sequential-thinking"
       ]
     },
-    "notion": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@notionhq/notion-mcp-server"
-      ],
-      "env": {
-        "NOTION_API_KEY": "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"
-      }
-    },
+
     "airweave": {
       "command": "npx",
       "args": [
