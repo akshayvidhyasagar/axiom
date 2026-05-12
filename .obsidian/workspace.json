@@ -196,12 +196,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "50f2703bb8ff38f3",
+  "active": "314d7b9bf515fcb6",
   "lastOpenFiles": [
+    "CLAUDE.md",
     "mcp-wrapper.log",
     "scratch/test-gitnexus-mcp.js",
     "scratch",
-    "CLAUDE.md",
     "node_modules/tree-sitter-cli/tree-sitter",
     "node_modules/tree-sitter-cli/package.json",
     "node_modules/tree-sitter-cli/install.js",
@@ -210,7 +210,6 @@
     "node_modules/tree-sitter-cli/README.md",
     "node_modules/tree-sitter-cli/LICENSE",
     "node_modules/tree-sitter-cli",
-    "node_modules/tree-sitter-swift/node_modules/which/bin/node-which",
     "node_modules/tree-sitter-swift/node_modules/which/README.md",
     "node_modules/tree-sitter-swift/node_modules/which/CHANGELOG.md",
     "node_modules/fs-extra/README.md",
