@@ -4,7 +4,7 @@
       "command": "/Users/akshayvidhyasagar/.nvm/versions/node/v24.10.0/bin/node",
       "args": [
         "/Users/akshayvidhyasagar/AXIOM/.antigravity/scripts/mcp-wrapper.js",
-        "npx",
+        "/Users/akshayvidhyasagar/.nvm/versions/node/v24.10.0/bin/npx",
         "-y",
         "gitnexus",
         "mcp"
@@ -14,7 +14,7 @@
       "command": "/Users/akshayvidhyasagar/.nvm/versions/node/v24.10.0/bin/node",
       "args": [
         "/Users/akshayvidhyasagar/AXIOM/.antigravity/scripts/mcp-wrapper.js",
-        "npx",
+        "/Users/akshayvidhyasagar/.nvm/versions/node/v24.10.0/bin/npx",
         "-y",
         "obsidian-mcp-server"
       ],
@@ -25,7 +25,7 @@
       }
     },
     "neon": {
-      "command": "npx",
+      "command": "/Users/akshayvidhyasagar/.nvm/versions/node/v24.10.0/bin/npx",
       "args": [
         "-y",
         "@neondatabase/mcp-server-neon",
@@ -34,7 +34,7 @@
       ]
     },
     "github": {
-      "command": "npx",
+      "command": "/Users/akshayvidhyasagar/.nvm/versions/node/v24.10.0/bin/npx",
       "args": [
         "-y",
         "@modelcontextprotocol/server-github"
@@ -44,7 +44,7 @@
       }
     },
     "supabase": {
-      "command": "npx",
+      "command": "/Users/akshayvidhyasagar/.nvm/versions/node/v24.10.0/bin/npx",
       "args": [
         "-y",
         "@supabase/mcp-server-supabase@latest",
@@ -53,15 +53,14 @@
       ]
     },
     "sequential-thinking": {
-      "command": "npx",
+      "command": "/Users/akshayvidhyasagar/.nvm/versions/node/v24.10.0/bin/npx",
       "args": [
         "-y",
         "@modelcontextprotocol/server-sequential-thinking"
       ]
     },
-
     "airweave": {
-      "command": "npx",
+      "command": "/Users/akshayvidhyasagar/.nvm/versions/node/v24.10.0/bin/npx",
       "args": [
         "-y",
         "airweave-mcp-search"
