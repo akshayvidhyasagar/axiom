@@ -1,3 +1,0 @@
-Airweave MCP Search Server started
-Collection: software-c7fb3h
-Base URL: https://api.airweave.ai
