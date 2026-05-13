@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "e80213b4a868a832",
+        "id": "34b356a62e64f848",
         "type": "tabs",
         "children": [
           {
-            "id": "314d7b9bf515fcb6",
+            "id": "7b0dad0f7b437132",
             "type": "leaf",
             "state": {
-              "type": "graph",
+              "type": "empty",
               "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -196,9 +196,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "314d7b9bf515fcb6",
+  "active": "7b0dad0f7b437132",
   "lastOpenFiles": [
     "CLAUDE.md",
+    "AGENTS.md",
+    "node_modules/@ladybugdb/core/node_modules/node-addon-api/README.md",
     "rules/mcp-policy.md",
     "skills/interrupt/SKILL.md",
     "skills/interrupt",
@@ -233,8 +235,6 @@
     "node_modules/onnxruntime-web/docs/webgl-operators.md",
     "node_modules/onnxruntime-web/lib/onnxjs/ort-schema/flatbuffers/README.md",
     "node_modules/@modelcontextprotocol/sdk/README.md",
-    "node_modules/gitnexus/README.md",
-    "node_modules/gitnexus/skills/gitnexus-refactoring.md",
     "Untitled 1.canvas",
     "Untitled.canvas"
   ]
