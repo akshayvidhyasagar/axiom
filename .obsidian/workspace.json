@@ -198,6 +198,13 @@
   },
   "active": "314d7b9bf515fcb6",
   "lastOpenFiles": [
+    "skills/interrupt/SKILL.md",
+    "skills/interrupt",
+    "skills",
+    "wiki/gaps/_index.md",
+    "docs/ONBOARDING.md",
+    "wiki/meta/session-log-template.md",
+    "rules/agent-limits.md",
     "CLAUDE.md",
     "mcp-wrapper.log",
     "scratch/test-gitnexus-mcp.js",
@@ -208,8 +215,6 @@
     "node_modules/tree-sitter-cli/dsl.d.ts",
     "node_modules/tree-sitter-cli/cli.js",
     "node_modules/tree-sitter-cli/README.md",
-    "node_modules/tree-sitter-cli/LICENSE",
-    "node_modules/tree-sitter-cli",
     "node_modules/tree-sitter-swift/node_modules/which/README.md",
     "node_modules/tree-sitter-swift/node_modules/which/CHANGELOG.md",
     "node_modules/fs-extra/README.md",
@@ -230,10 +235,6 @@
     "node_modules/gitnexus/README.md",
     "node_modules/gitnexus/skills/gitnexus-refactoring.md",
     "node_modules/gitnexus/skills/gitnexus-pr-review.md",
-    "node_modules/gitnexus/skills/gitnexus-impact-analysis.md",
-    "node_modules/gitnexus/skills/gitnexus-guide.md",
-    "node_modules/gitnexus/skills/gitnexus-exploring.md",
-    "node_modules/gitnexus/skills/gitnexus-debugging.md",
     "Untitled 1.canvas",
     "Untitled.canvas"
   ]

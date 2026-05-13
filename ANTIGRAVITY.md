@@ -26,7 +26,7 @@
 
 2. **Read wiki/hot.md** — 500-word context cache. This is the primary bootstrap. Read fully before anything else.
 
-3. **Read docs/PRD.md** — identify the active phase, its acceptance criteria, and which checkboxes are complete vs pending.
+3. **Read docs/PRD.md** — only if hot.md indicates a phase transition is imminent or the current phase is ambiguous. Otherwise, use hot.md's phase summary and skip to Step 4.
 
 4. **Read docs/CHANGELOG.md last 3 entries** — understand what changed recently and what was left incomplete.
 
@@ -54,7 +54,7 @@
    curl -sk -H "Authorization: Bearer $OBSIDIAN_KEY" "https://127.0.0.1:27124/vault/wiki/hot.md" | head -30
    ```
 
-   Confirm Obsidian and filesystem are in sync. If they diverge, filesystem is canonical.
+   Confirm Obsidian and filesystem are in sync. If they diverge, filesystem is canonical. If the curl returns an error or connection is refused, skip this step and append `[obsidian-sync: offline]` to the session's log.md entry. Filesystem is canonical regardless.
 
 ### END (every session where any file was touched — all 5 steps mandatory)
 
@@ -87,6 +87,13 @@
    ```
 
    Use commit convention from ANTIGRAVITY.md. Canonical doc changes in separate commits from code.
+
+### INTERRUPT (if session ends mid-task without completing the goal)
+
+1. Write current task state under "Active Threads" in wiki/hot.md — what was in progress, what is blocked, what the next concrete step is.
+2. Commit with: `chore: interrupt — <one line on what was left incomplete>`
+
+Do not run the full END protocol on an interrupted session. hot.md entry is mandatory regardless.
 
 ---
 
@@ -136,15 +143,8 @@ These guidelines bias toward caution over speed. For trivial tasks, use judgment
 
 ---
 
-## Project State
-
-| Item | Value |
-|------|-------|
-| Active Phase | Phase 0 — Environment Setup |
-| Qlib installed | No |
-| Baseline metrics | TBD |
-| Last commit | 3cca4f7 |
-| Wiki pages | 4 concept stubs |
+## Current State
+See wiki/hot.md — it is the canonical project state. Do not duplicate here.
 
 ---
 
@@ -467,7 +467,7 @@ Add to those projects' ANTIGRAVITY.md:
 ## AXIOM Wiki
 Path: ~/path/to/AXIOM/wiki/
 Read order: hot.md → index.md → domain _index.md → individual pages
-Do NOT read for general coding questions unrelated to AXIOM concepts.
+Gate: Only read AXIOM wiki when the task explicitly involves a concept originating from AXIOM (regime detection, factor models, execution logic, portfolio construction). Do NOT read for general coding questions unrelated to AXIOM quant concepts.
 ```
 
 ---

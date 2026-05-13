@@ -17,6 +17,10 @@ updated: 2026-05-04
 - [[Qlib Alpha158]] — Microsoft Qlib's baseline feature set
 - [[Regime Detection]] — Gaussian HMM for classifying market states
 
+## Meta
+- [[Gaps Index]] — Open questions and unresolved issues
+- [[Session Log Template]] — hot.md structural guidelines
+
 ## Sources
 *(None yet)*
 
