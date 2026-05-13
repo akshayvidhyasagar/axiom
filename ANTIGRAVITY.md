@@ -102,6 +102,7 @@ Do not run the full END protocol on an interrupted session. hot.md entry is mand
 These guidelines bias toward caution over speed. For trivial tasks, use judgment.
 
 ### 1. Think Before Coding
+
 *Don't assume. Don't hide confusion. Surface tradeoffs.*
 
 - **State assumptions explicitly.** If uncertain, ask.
@@ -110,6 +111,7 @@ These guidelines bias toward caution over speed. For trivial tasks, use judgment
 - **Stop on ambiguity.** If something is unclear, name what's confusing. Ask.
 
 ### 2. Simplicity First
+
 *Minimum code that solves the problem. Nothing speculative.*
 
 - **No gold-plating.** No features beyond what was asked.
@@ -120,6 +122,7 @@ These guidelines bias toward caution over speed. For trivial tasks, use judgment
 - **Seniority Test.** "Would a senior engineer say this is overcomplicated?" If yes, simplify.
 
 ### 3. Surgical Changes
+
 *Touch only what you must. Clean up only your own mess.*
 
 - **Stay in scope.** Don't "improve" adjacent code, comments, or formatting.
@@ -130,6 +133,7 @@ These guidelines bias toward caution over speed. For trivial tasks, use judgment
 - **The Traceability Test.** Every changed line should trace directly to the user's request.
 
 ### 4. Goal-Driven Execution
+
 *Define success criteria. Loop until verified.*
 
 - **Verifiable goals.**
@@ -144,6 +148,7 @@ These guidelines bias toward caution over speed. For trivial tasks, use judgment
 ---
 
 ## Current State
+
 See wiki/hot.md — it is the canonical project state. Do not duplicate here.
 
 ---
@@ -175,7 +180,8 @@ AXIOM/                       ← vault root (open this in Obsidian)
 │   ├── PRD.md               ← phase checkboxes — source of truth
 │   ├── ARCHITECTURE.md      ← module map, dependency graph
 │   ├── DECISIONS.md         ← ADR-001 through ADR-00N
-│   └── CHANGELOG.md         ← append-only session log
+│   ├── CHANGELOG.md         ← append-only session log
+│   └── ONBOARDING.md        ← entry point for new/returning sessions
 ├── factors/                 ← Phase 1
 ├── regime/                  ← Phase 2
 ├── models/                  ← Phase 3
@@ -190,7 +196,9 @@ AXIOM/                       ← vault root (open this in Obsidian)
 │       ├── ohlcv/
 │       ├── short_interest/
 │       └── earnings/
-├── rules/axiom-kb.md        ← full rule set
+├── rules/
+│   ├── axiom-kb.md          ← full rule set
+│   └── agent-limits.md      ← hard behavioral limits
 └── skills/
     ├── WIKI.md                   ← claude-obsidian schema — read before any wiki op
     ├── wiki/SKILL.md
@@ -201,7 +209,8 @@ AXIOM/                       ← vault root (open this in Obsidian)
     ├── save/SKILL.md
     ├── autoresearch/SKILL.md
     ├── canvas/SKILL.md
-    └── obsidian-markdown/SKILL.md
+    ├── obsidian-markdown/SKILL.md
+    └── interrupt/SKILL.md   ← mid-session interrupt procedure
 ```
 
 ---
@@ -217,6 +226,10 @@ AXIOM/                       ← vault root (open this in Obsidian)
 | `wiki/hot.md` | Overwrite completely at session end. Keep under 500 words. Primary session bootstrap. |
 | `wiki/log.md` | Append only. New entries at TOP. Format: `## [YYYY-MM-DD] operation \| title` |
 | `wiki/index.md` | Update on every ingest and after any wiki restructure. |
+| `rules/agent-limits.md` | Hard limits — read before any destructive operation. Never modify without Akshay approval. |
+| `docs/ONBOARDING.md` | Update if system structure changes significantly. Not a session log. |
+| `wiki/gaps/_index.md` | Add gaps as discovered. Resolve inline. Never delete rows — move to resolution log. |
+| `skills/interrupt/SKILL.md` | Read and follow when a session ends mid-task. Do not improvise interrupt behavior. |
 
 ---
 
@@ -457,20 +470,7 @@ chore: CHANGELOG + hot.md sync
 
 Canonical doc changes in separate commits from code changes. Never batch wiki + code in one commit.
 
----
 
-## Cross-Project Access (Vellanthra, Polymatic)
-
-Add to those projects' ANTIGRAVITY.md:
-
-```
-## AXIOM Wiki
-Path: ~/path/to/AXIOM/wiki/
-Read order: hot.md → index.md → domain _index.md → individual pages
-Gate: Only read AXIOM wiki when the task explicitly involves a concept originating from AXIOM (regime detection, factor models, execution logic, portfolio construction). Do NOT read for general coding questions unrelated to AXIOM quant concepts.
-```
-
----
 
 ## Akshay's Manual Responsibilities
 
