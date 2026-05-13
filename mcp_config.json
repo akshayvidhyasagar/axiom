@@ -24,15 +24,6 @@
         "OBSIDIAN_VERIFY_SSL": "false"
       }
     },
-    "neon": {
-      "command": "/Users/akshayvidhyasagar/.nvm/versions/node/v24.10.0/bin/npx",
-      "args": [
-        "-y",
-        "@neondatabase/mcp-server-neon",
-        "start",
-        "napi_b4uupv8qj9av255qsj10pyp5mo3s8m2t6arfmzvhcj01n0r98vmo0oisrznnci0y"
-      ]
-    },
     "github": {
       "command": "/Users/akshayvidhyasagar/.nvm/versions/node/v24.10.0/bin/npx",
       "args": [
@@ -42,15 +33,6 @@
       "env": {
         "GITHUB_PERSONAL_ACCESS_TOKEN": "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"
       }
-    },
-    "supabase": {
-      "command": "/Users/akshayvidhyasagar/.nvm/versions/node/v24.10.0/bin/npx",
-      "args": [
-        "-y",
-        "@supabase/mcp-server-supabase@latest",
-        "--access-token",
-        "sbp_2aa227b7e420e5a1689a7ae307f6d900b5d43f63"
-      ]
     },
     "sequential-thinking": {
       "command": "/Users/akshayvidhyasagar/.nvm/versions/node/v24.10.0/bin/npx",
