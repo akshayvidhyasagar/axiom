@@ -20,6 +20,12 @@ updated: 2026-05-04
 ## Meta
 - [[Gaps Index]] — Open questions and unresolved issues
 - [[Session Log Template]] — hot.md structural guidelines
+- [[mcp-policy.md]] — MCP usage policy and permitted operations
+
+## Rules
+- [[axiom-kb.md]]
+- [[agent-limits.md]]
+- [[mcp-policy.md]]
 
 ## Sources
 *(None yet)*

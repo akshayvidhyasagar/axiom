@@ -198,6 +198,7 @@
   },
   "active": "314d7b9bf515fcb6",
   "lastOpenFiles": [
+    "rules/mcp-policy.md",
     "skills/interrupt/SKILL.md",
     "skills/interrupt",
     "skills",
@@ -234,7 +235,6 @@
     "node_modules/@modelcontextprotocol/sdk/README.md",
     "node_modules/gitnexus/README.md",
     "node_modules/gitnexus/skills/gitnexus-refactoring.md",
-    "node_modules/gitnexus/skills/gitnexus-pr-review.md",
     "Untitled 1.canvas",
     "Untitled.canvas"
   ]

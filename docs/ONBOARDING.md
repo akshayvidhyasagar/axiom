@@ -28,6 +28,7 @@ wiki/gaps/_index.md Open questions and unresolved issues Add gaps as discovered;
 wiki/meta/session-log-template.md hot.md fill-in template Use at every session end
 rules/agent-limits.md Hard behavioral limits Non-negotiable — read before any destructive operation
 skills/interrupt/SKILL.md Mid-session interrupt procedure Invoke when session ends without completing goal
+rules/mcp-policy.md Permitted operations and hard limits for all MCPs Read before invoking any MCP tool
 What not to touch without reading first
 docs/DECISIONS.md — read before any architectural change
 

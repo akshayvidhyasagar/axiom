@@ -24,6 +24,8 @@
    git add -A && git commit -m "chore: uncommitted changes from previous session"
    ```
 
+   If any MCP will be used this session, confirm permitted operations in `rules/mcp-policy.md` before invoking.
+
 2. **Read wiki/hot.md** — 500-word context cache. This is the primary bootstrap. Read fully before anything else.
 
 3. **Read docs/PRD.md** — only if hot.md indicates a phase transition is imminent or the current phase is ambiguous. Otherwise, use hot.md's phase summary and skip to Step 4.
@@ -198,7 +200,8 @@ AXIOM/                       ← vault root (open this in Obsidian)
 │       └── earnings/
 ├── rules/
 │   ├── axiom-kb.md          ← full rule set
-│   └── agent-limits.md      ← hard behavioral limits
+│   ├── agent-limits.md      ← hard behavioral limits
+│   └── mcp-policy.md        ← MCP trigger conditions and permitted operations
 └── skills/
     ├── WIKI.md                   ← claude-obsidian schema — read before any wiki op
     ├── wiki/SKILL.md
@@ -230,6 +233,7 @@ AXIOM/                       ← vault root (open this in Obsidian)
 | `docs/ONBOARDING.md` | Update if system structure changes significantly. Not a session log. |
 | `wiki/gaps/_index.md` | Add gaps as discovered. Resolve inline. Never delete rows — move to resolution log. |
 | `skills/interrupt/SKILL.md` | Read and follow when a session ends mid-task. Do not improvise interrupt behavior. |
+| `rules/mcp-policy.md` | Read before using any MCP. Never modify permitted/forbidden rules without Akshay approval. |
 
 ---
 
@@ -312,6 +316,7 @@ curl -sk -X PATCH -H "Authorization: Bearer $KEY" \
 | qmd | `qmd wiki/ "<query>"` | Fast keyword search across wiki — use before manual scanning |
 | GitNexus | `gitnexus analyze <path>` | Module import graph — run before editing any module |
 | git | `git log --oneline -10` | Verify last 10 commits at session start |
+| MCP Policy | `rules/mcp-policy.md` | Permitted operations, triggers, and hard limits for all MCPs |
 
 ---
 
