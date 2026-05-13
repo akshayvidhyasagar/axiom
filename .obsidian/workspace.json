@@ -198,6 +198,7 @@
   },
   "active": "314d7b9bf515fcb6",
   "lastOpenFiles": [
+    "CLAUDE.md",
     "rules/mcp-policy.md",
     "skills/interrupt/SKILL.md",
     "skills/interrupt",
@@ -206,7 +207,6 @@
     "docs/ONBOARDING.md",
     "wiki/meta/session-log-template.md",
     "rules/agent-limits.md",
-    "CLAUDE.md",
     "mcp-wrapper.log",
     "scratch/test-gitnexus-mcp.js",
     "scratch",
