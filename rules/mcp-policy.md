@@ -101,3 +101,21 @@ Use for frontmatter patches only — do not rewrite full files via API when file
 - If an MCP call fails, log the failure in wiki/log.md and fall back to the non-MCP equivalent
 - Never chain multiple MCP calls without checking intermediate results
 - MCP tool usage does not replace the START/END/INTERRUPT protocol — all session rules still apply regardless of which tools are used
+
+***
+
+## shadcn/ui (Registry & Component Management)
+
+**Trigger:** Mandatory for all frontend UI development. Use before adding any new visual component, layout primitive, or block.
+
+**Permitted:**
+- `shadcn add <component>` — Installing verified components from the registry
+- `shadcn add <block>` — Composing full UI blocks (Sidebars, Settings, Forms)
+- Theme inspection via registry search
+
+**Forbidden:**
+- Do not create custom UI components from scratch if a shadcn equivalent exists
+- Do not manually edit files in `components/ui/` unless strictly necessary for the obsidian theme override
+- Do not use Tailwind utility classes for high-level layouts (cards, dialogs) when a shadcn component is available
+
+**Design Standard:** All components must follow the **Obsidian Dark** theme variables defined in `src/index.css`.

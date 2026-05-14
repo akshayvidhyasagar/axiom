@@ -309,12 +309,37 @@ curl -sk -X PATCH -H "Authorization: Bearer $KEY" \
 
 ---
 
+## Design Standards (Obsidian Dark)
+
+All frontend UI development must adhere to the **Obsidian Dark** aesthetic.
+
+### 1. Mandatory Tooling
+- **Primitive Library:** [shadcn/ui](https://ui.shadcn.com)
+- **Styling:** Tailwind CSS v4
+- **Typography:** Geist (Sans) / Geist Mono (Code)
+- **Icons:** Lucide
+
+### 2. Implementation Protocol
+- **Installation:** Always use `shadcn add` via MCP. Never build from scratch if a registry component exists.
+- **Composition:** Prefer shadcn "Blocks" for large layouts (Sidebars, Settings).
+- **Theming:** Use CSS variables from `src/index.css`. Never use hardcoded hex values.
+- **Glassmorphism:** Apply `.glass-panel` to cards, overlays, and floating elements.
+
+### 3. Aesthetic Constraints
+- **Base:** `#09090b` (Deep obsidian)
+- **Primary:** High-contrast neutral (`#e4e4e7`)
+- **Accent:** Cold Cyan (`#00d4ff`) — use sparingly for focus/active states.
+- **Surface:** Glass-morphed panels with subtle borders.
+
+---
+
 ## Tooling
 
 | Tool | Command | Purpose |
 |------|---------|---------|
 | qmd | `qmd wiki/ "<query>"` | Fast keyword search across wiki — use before manual scanning |
 | GitNexus | `gitnexus analyze <path>` | Module import graph — run before editing any module |
+| shadcn | `shadcn add <item>` | Mandatory UI component management |
 | git | `git log --oneline -10` | Verify last 10 commits at session start |
 | MCP Policy | `rules/mcp-policy.md` | Permitted operations, triggers, and hard limits for all MCPs |
 

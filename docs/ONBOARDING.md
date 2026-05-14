@@ -52,4 +52,15 @@ Check wiki/log.md — what was the last operation?
 
 Check docs/CHANGELOG.md — what changed in the last session?
 
+## Design System (shadcn)
+
+AXIOM uses **shadcn/ui** as its mandatory frontend design tool.
+
+- **Theme:** Obsidian Dark (configured in `src/index.css`)
+- **Workflow:** Use the `shadcn` MCP to search, add, and compose components.
+- **Rules:** 
+  - Never build from scratch if a shadcn equivalent exists.
+  - Follow the aesthetic constraints in `ANTIGRAVITY.md`.
+  - Always verify component installation in `components/ui/`.
+
 If state is inconsistent, do not proceed — surface the discrepancy and ask Akshay before touching any file.
