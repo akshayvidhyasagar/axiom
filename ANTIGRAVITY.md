@@ -202,6 +202,15 @@ AXIOM/                       ← vault root (open this in Obsidian)
 │   ├── axiom-kb.md          ← full rule set
 │   ├── agent-limits.md      ← hard behavioral limits
 │   └── mcp-policy.md        ← MCP trigger conditions and permitted operations
+├── src/
+│   └── index.css            ← Obsidian Dark theme variables, Geist fonts, glassmorphism
+├── components/
+│   └── ui/                  ← shadcn-managed components — installed via MCP, not manually authored
+├── lib/
+│   └── utils.js             ← shared utilities (cn() class merge helper)
+├── components.json          ← shadcn registry config (style, aliases, icon library)
+├── index.html               ← Vite entry point
+├── vite.config.js           ← Vite build config
 └── skills/
     ├── WIKI.md                   ← claude-obsidian schema — read before any wiki op
     ├── wiki/SKILL.md
@@ -234,6 +243,9 @@ AXIOM/                       ← vault root (open this in Obsidian)
 | `wiki/gaps/_index.md` | Add gaps as discovered. Resolve inline. Never delete rows — move to resolution log. |
 | `skills/interrupt/SKILL.md` | Read and follow when a session ends mid-task. Do not improvise interrupt behavior. |
 | `rules/mcp-policy.md` | Read before using any MCP. Never modify permitted/forbidden rules without Akshay approval. |
+| `components.json` | shadcn registry config. Never add third-party registries without Akshay approval. |
+| `src/index.css` | Obsidian Dark theme variables. All color/font overrides go here — never in component files. |
+| `components/ui/` | shadcn-managed components. Install via MCP only. Do not manually create or delete files here. |
 
 ---
 
@@ -309,27 +321,101 @@ curl -sk -X PATCH -H "Authorization: Bearer $KEY" \
 
 ---
 
-## Design Standards (Obsidian Dark)
+## Shadcn Blocks-First Frontend Protocol
 
-All frontend UI development must adhere to the **Obsidian Dark** aesthetic.
+All frontend UI development must use **shadcn/ui** as the mandatory design system, adhering to the **Obsidian Dark** aesthetic. The agent must never build UI from scratch when a shadcn block or component exists.
 
 ### 1. Mandatory Tooling
-- **Primitive Library:** [shadcn/ui](https://ui.shadcn.com)
-- **Styling:** Tailwind CSS v4
-- **Typography:** Geist (Sans) / Geist Mono (Code)
-- **Icons:** Lucide
 
-### 2. Implementation Protocol
-- **Installation:** Always use `shadcn add` via MCP. Never build from scratch if a registry component exists.
-- **Composition:** Prefer shadcn "Blocks" for large layouts (Sidebars, Settings).
-- **Theming:** Use CSS variables from `src/index.css`. Never use hardcoded hex values.
-- **Glassmorphism:** Apply `.glass-panel` to cards, overlays, and floating elements.
+| Layer | Tool | Notes |
+|-------|------|-------|
+| **Blocks** | shadcn `registry:block` | Full page layouts — dashboards, sidebars, login pages, charts. **Always search here first.** |
+| **Components** | shadcn `registry:ui` | Primitives — buttons, dialogs, inputs, tables. Use only when no block covers the need. |
+| **Examples** | shadcn `registry:example` | Demo patterns showing component usage. Reference before composing custom layouts. |
+| **Styling** | Tailwind CSS v4 | Utility classes only for spacing/positioning. Never for high-level layout when a component exists. |
+| **Typography** | Geist (Sans) / Geist Mono (Code) | Loaded via `src/index.css`. Never override with other font stacks. |
+| **Icons** | Lucide | Configured in `components.json`. Never import alternative icon libraries. |
 
-### 3. Aesthetic Constraints
-- **Base:** `#09090b` (Deep obsidian)
-- **Primary:** High-contrast neutral (`#e4e4e7`)
-- **Accent:** Cold Cyan (`#00d4ff`) — use sparingly for focus/active states.
-- **Surface:** Glass-morphed panels with subtle borders.
+### 2. Implementation Protocol — Blocks First
+
+When any frontend UI work is requested, follow this exact sequence:
+
+```
+Step 1 → SEARCH BLOCKS     : shadcn MCP → search_items_in_registries("@shadcn", "<feature>")
+                              Filter for registry:block results (dashboards, sidebars, login, charts)
+Step 2 → SEARCH COMPONENTS  : If no block matches, search for registry:ui primitives
+Step 3 → VIEW EXAMPLES      : shadcn MCP → get_item_examples_from_registries("@shadcn", "<item>-demo")
+                              Study the usage pattern before writing any code
+Step 4 → INSTALL            : shadcn MCP → get_add_command_for_items → run the command
+                              This installs to components/ui/ with all dependencies
+Step 5 → CUSTOMIZE THEME    : Only via CSS variables in src/index.css
+                              Never modify component source files in components/ui/ unless
+                              strictly necessary for Obsidian Dark theme overrides
+Step 6 → AUDIT              : shadcn MCP → get_audit_checklist
+                              Run after every component installation to verify correctness
+```
+
+**Decision Tree:**
+
+```
+Need a full page layout (dashboard, sidebar, login)?
+  → Search registry:block → Install block → Done
+
+Need a UI primitive (button, dialog, input)?
+  → Search registry:ui → Install component → Done
+
+Need a chart or data visualization?
+  → Search registry:block (chart-*) → Install chart block → Done
+
+Nothing in the registry matches?
+  → Build custom, BUT:
+    - Use shadcn primitives as building blocks (Card, Button, Table, etc.)
+    - Follow Obsidian Dark CSS variable system
+    - Apply .glass-panel to floating/overlay elements
+    - Document the custom component in wiki/modules/
+```
+
+### 3. Aesthetic Constraints (Obsidian Dark)
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--background` | `#09090b` | Deep obsidian base |
+| `--foreground` | `#e4e4e7` | High-contrast text |
+| `--accent` | `#00d4ff` | Cold cyan — focus rings, active states, sparingly |
+| `--card` | `#111113` | Card/popover surfaces |
+| `--border` | `hsl(240 4% 14%)` | Subtle borders |
+| `--muted-foreground` | `#71717a` | Secondary text |
+
+**Rules:**
+- Never use hardcoded hex values — always reference CSS variables via `hsl(var(--token))` or Tailwind classes.
+- Apply `.glass-panel` to cards, overlays, and floating elements for the glassmorphism effect.
+- All theming lives in `src/index.css`. Component files in `components/ui/` should not contain color overrides.
+
+### 4. Registry Configuration
+
+The project uses `components.json` at the repo root:
+
+| Key | Value |
+|-----|-------|
+| Style | `base-nova` |
+| Icons | `lucide` |
+| CSS | `src/index.css` |
+| Components path | `@/components` |
+| UI path | `@/components/ui` |
+| Utilities | `@/lib/utils` |
+
+**Registry:** `@shadcn` is the only configured registry. Do not add third-party registries without Akshay approval.
+
+### 5. Forbidden Patterns
+
+- ❌ Building a sidebar from scratch when `sidebar-01` through `sidebar-16` exist
+- ❌ Building a dashboard layout from scratch when `dashboard-01` exists
+- ❌ Building a login/signup page from scratch when `login-01` through `login-05` exist
+- ❌ Building chart components from scratch when `chart-*` blocks exist
+- ❌ Using raw HTML `<table>` when the `table` component exists
+- ❌ Using raw HTML `<dialog>` when `dialog` or `sheet` components exist
+- ❌ Importing alternative icon libraries (Font Awesome, Heroicons, etc.)
+- ❌ Manually editing `components/ui/` files for anything other than Obsidian Dark theme fixes
 
 ---
 
@@ -339,7 +425,12 @@ All frontend UI development must adhere to the **Obsidian Dark** aesthetic.
 |------|---------|---------|
 | qmd | `qmd wiki/ "<query>"` | Fast keyword search across wiki — use before manual scanning |
 | GitNexus | `gitnexus analyze <path>` | Module import graph — run before editing any module |
-| shadcn | `shadcn add <item>` | Mandatory UI component management |
+| shadcn search | `search_items_in_registries` | Search blocks and components — **always run first** before building UI |
+| shadcn view | `view_items_in_registries` | Inspect component source, dependencies, and type |
+| shadcn examples | `get_item_examples_from_registries` | View demo code and usage patterns before composing |
+| shadcn install | `get_add_command_for_items` | Generate the CLI install command for components/blocks |
+| shadcn audit | `get_audit_checklist` | Post-install verification — run after every component addition |
+| shadcn registries | `get_project_registries` | Verify which registries are configured in `components.json` |
 | git | `git log --oneline -10` | Verify last 10 commits at session start |
 | MCP Policy | `rules/mcp-policy.md` | Permitted operations, triggers, and hard limits for all MCPs |
 

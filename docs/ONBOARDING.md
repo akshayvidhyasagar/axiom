@@ -52,15 +52,37 @@ Check wiki/log.md — what was the last operation?
 
 Check docs/CHANGELOG.md — what changed in the last session?
 
-## Design System (shadcn)
+## Design System — Shadcn Blocks-First Protocol
 
-AXIOM uses **shadcn/ui** as its mandatory frontend design tool.
+AXIOM uses **shadcn/ui** as its mandatory frontend design system with a **blocks-first** approach. All frontend UI must be composed from shadcn registry items before writing custom code.
 
-- **Theme:** Obsidian Dark (configured in `src/index.css`)
-- **Workflow:** Use the `shadcn` MCP to search, add, and compose components.
-- **Rules:** 
-  - Never build from scratch if a shadcn equivalent exists.
-  - Follow the aesthetic constraints in `ANTIGRAVITY.md`.
-  - Always verify component installation in `components/ui/`.
+### Quick Reference
+
+| What | Where |
+|------|-------|
+| Full protocol spec | `ANTIGRAVITY.md → Shadcn Blocks-First Frontend Protocol` |
+| MCP permitted operations | `rules/mcp-policy.md → shadcn/ui` |
+| Theme variables | `src/index.css` |
+| Registry config | `components.json` (root) |
+| Installed components | `components/ui/` |
+| Utilities | `lib/utils` |
+
+### Blocks-First Workflow (mandatory for all UI work)
+
+1. **Search blocks first** — Use `search_items_in_registries` to find `registry:block` items (dashboards, sidebars, charts, login pages).
+2. **Fall to components** — If no block matches, search for `registry:ui` primitives (button, dialog, table).
+3. **View examples** — Use `get_item_examples_from_registries` to study usage patterns.
+4. **Install via MCP** — Use `get_add_command_for_items` to generate and run the install command.
+5. **Audit** — Run `get_audit_checklist` after every installation.
+
+### Rules
+
+- Never build from scratch if a shadcn block or component exists.
+- Never hardcode colors — use CSS variables from `src/index.css`.
+- Never edit `components/ui/` files unless strictly necessary for Obsidian Dark theme overrides.
+- Follow the aesthetic constraints in `ANTIGRAVITY.md`.
+- Always verify component installation with the audit checklist.
+- Only the `@shadcn` registry is permitted — no third-party registries without Akshay approval.
 
 If state is inconsistent, do not proceed — surface the discrepancy and ask Akshay before touching any file.
+

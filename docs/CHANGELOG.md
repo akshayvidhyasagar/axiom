@@ -75,3 +75,15 @@ Format: `[YYYY-MM-DD] Category — Description`
 - Verified `qmd` global installation.
 - Synchronized `.obsidian/plugins` and configurations.
 
+---
+
+## [2026-05-25] Maintenance — Shadcn Blocks-First Protocol Integration
+
+### Code Changes
+- Updated `ANTIGRAVITY.md` — Codified the Shadcn Blocks-First Protocol, added aesthetic constraints for Obsidian Dark, and updated repository structure/canonical file rules.
+- Updated `rules/mcp-policy.md` — Replaced basic registry policy with a detailed 6-step blocks-first workflow and explicit forbidden rules.
+- Updated `docs/ONBOARDING.md` — Expanded the Design System section with the mandatory blocks-first frontend workflow.
+- Updated `rules/agent-limits.md` — Added non-negotiable frontend restrictions (mandatory registry searches, no third-party registries, Geist theme variables, Lucide icons only).
+- Updated `docs/ARCHITECTURE.md` — Added Frontend Stack section documenting the Vite, Tailwind CSS v4, and shadcn/ui configuration.
+- Updated `rules/axiom-kb.md` — Added Shadcn Blocks-First Protocol under Knowledge Rules (R8), integrated shadcn MCP tools under Tooling, and documented file rules.
+

@@ -1,3 +1,8 @@
+## [2026-05-25] arch | Shadcn Blocks-First Frontend Protocol Integration
+- Codified Shadcn Blocks-First Frontend Protocol across AXIOM
+- Added rules/agent-limits.md and rules/mcp-policy.md restrictions
+- Updated docs/ARCHITECTURE.md, docs/ONBOARDING.md, and rules/axiom-kb.md
+
 ## [2026-05-05] arch | Protocol Hardening
 - Encoded live tool gates (GitNexus analyze, qmd query) into session START/END
 - Established Skill Invocation Rules and Continuous Wiki Maintenance protocol

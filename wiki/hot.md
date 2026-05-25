@@ -1,20 +1,20 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-05-05
+updated: 2026-05-25
 ---
 
 # Recent Context
 
 ## Last Updated
-2026-05-05 — Protocol hardening and system verification.
+2026-05-25 — Shadcn Blocks-First Frontend Protocol Integration.
 
 ## Current State
 - AXIOM Knowledge System is fully operational and protocol-hardened.
 - All session protocols (START/END) are encoded in `ANTIGRAVITY.md`.
-- `qmd` is installed globally.
-- `.obsidian/plugins` are now tracked (except ignored data/cache).
-- Orphan artifacts at root have been cleaned.
+- Shadcn Blocks-First Protocol is codified across AXIOM to standardize UI development.
+- Hard limits for UI components, icon libraries, and theming are enforced in `rules/agent-limits.md`.
+- `docs/ARCHITECTURE.md` contains the Frontend Stack documentation.
 
 ## Key Known Issues
 - `qmd` execution in agent shell is blocked by macOS `Operation not permitted`, but confirmed working in user terminal.
@@ -23,9 +23,7 @@ updated: 2026-05-05
 ## Active Threads
 - Ready to move into Phase 1: AlphaAXIOM factor library.
 - Need to ingest baseline Alpha158 metrics as specified in `docs/PRD.md`.
+- Ensure all new frontend tasks follow the Blocks-First workflow (search blocks → components → examples → install → audit).
 
 ## Recent Changes
-- Expanded START protocol to 7 steps, END to 5 steps.
-- Added GitNexus Decision Protocol.
-- Added Continuous Wiki Maintenance rules.
-- Added Skill Invocation Rules.
+- Updated ANTIGRAVITY.md, mcp-policy.md, ONBOARDING.md, agent-limits.md, ARCHITECTURE.md, and rules/axiom-kb.md with Shadcn Blocks-First Protocol details.

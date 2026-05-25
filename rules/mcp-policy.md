@@ -104,18 +104,51 @@ Use for frontmatter patches only — do not rewrite full files via API when file
 
 ***
 
-## shadcn/ui (Registry & Component Management)
+## shadcn/ui (Blocks-First Frontend Protocol)
 
-**Trigger:** Mandatory for all frontend UI development. Use before adding any new visual component, layout primitive, or block.
+**Trigger:** Mandatory for ALL frontend UI development. Must be invoked BEFORE writing any UI code. The shadcn MCP is the primary tool for frontend composition — not a supplement.
 
-**Permitted:**
-- `shadcn add <component>` — Installing verified components from the registry
-- `shadcn add <block>` — Composing full UI blocks (Sidebars, Settings, Forms)
-- Theme inspection via registry search
+### Mandatory Workflow (execute in order)
 
-**Forbidden:**
-- Do not create custom UI components from scratch if a shadcn equivalent exists
-- Do not manually edit files in `components/ui/` unless strictly necessary for the obsidian theme override
-- Do not use Tailwind utility classes for high-level layouts (cards, dialogs) when a shadcn component is available
+| Step | MCP Tool | Action |
+|------|----------|--------|
+| 1 | `search_items_in_registries` | Search for `registry:block` matches first (dashboards, sidebars, login, charts). If no block matches, search for `registry:ui` components. |
+| 2 | `view_items_in_registries` | Inspect the matched item's source code, dependencies, and type before installing. |
+| 3 | `get_item_examples_from_registries` | Review usage examples and demo patterns (e.g., `"sidebar-demo"`, `"chart-area-demo"`). |
+| 4 | `get_add_command_for_items` | Generate the exact CLI command to install the item and its dependencies. |
+| 5 | Run the install command | Execute the generated `npx shadcn@latest add <item>` command. |
+| 6 | `get_audit_checklist` | Verify installation correctness — run after EVERY component/block addition. |
 
-**Design Standard:** All components must follow the **Obsidian Dark** theme variables defined in `src/index.css`.
+### Registry Type Hierarchy
+
+Search and install in this priority order:
+
+1. **`registry:block`** — Full page layouts (dashboards, sidebars, login/signup, chart compositions). **Always search here first.**
+2. **`registry:ui`** — Individual primitives (button, dialog, input, table). Use when no block covers the need.
+3. **`registry:example`** — Usage demos. Reference for composition patterns, never install directly.
+
+### Permitted
+
+- `search_items_in_registries` — Discovering blocks and components by keyword
+- `view_items_in_registries` — Reading component source and metadata
+- `get_item_examples_from_registries` — Studying usage patterns and demo code
+- `get_add_command_for_items` — Generating install commands
+- `get_audit_checklist` — Post-install verification
+- `get_project_registries` — Confirming `components.json` registry configuration
+- `list_items_in_registries` — Browsing the full registry catalog
+
+### Forbidden
+
+- ❌ Do not create custom UI components from scratch if a shadcn block or component exists
+- ❌ Do not manually edit files in `components/ui/` unless strictly necessary for Obsidian Dark theme overrides
+- ❌ Do not use Tailwind utility classes for high-level layouts (cards, dialogs, sidebars) when a shadcn component exists
+- ❌ Do not skip Step 1 (search) — always verify the registry before writing custom code
+- ❌ Do not skip Step 6 (audit) — always verify after installation
+- ❌ Do not add third-party registries to `components.json` without Akshay approval
+- ❌ Do not import alternative icon libraries (Font Awesome, Heroicons) — Lucide only
+- ❌ Do not override component colors via inline styles or component-level CSS — use `src/index.css` variables only
+
+### Design Standard
+
+All components must follow the **Obsidian Dark** theme variables defined in `src/index.css`. See `ANTIGRAVITY.md → Shadcn Blocks-First Frontend Protocol → Aesthetic Constraints` for the full token table.
+

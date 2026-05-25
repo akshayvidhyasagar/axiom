@@ -93,6 +93,15 @@ Add a new ADR whenever:
 - Never leave TBD values once real numbers exist
 - Keep build phases checklist in sync with PRD.md
 
+### components.json
+- Registry configuration. Never add third-party registries without Akshay approval.
+
+### src/index.css
+- Global theme and custom variable definitions. All theme overrides and glassmorphism styles go here — never override colors in component files.
+
+### components/ui/
+- shadcn-managed components. Install via MCP only. Do not manually create, edit, or delete files here. Overrides must be approved.
+
 ---
 
 ## Commit Convention
@@ -135,6 +144,10 @@ No custom factor enters the model without passing IC ≥ 0.02 validation.
 
 ### R7: Keep the changelog current
 Every session that modifies code or documentation must append a CHANGELOG entry before committing.
+
+### R8: Shadcn Blocks-First Protocol
+All frontend UI development must use shadcn/ui. Always search for registry:block items via MCP before building custom components or using registry:ui primitives. No custom UI components or layouts from scratch when a registry equivalent exists.
+
 
 ---
 
@@ -201,3 +214,10 @@ Usage: `qmd wiki/ "<query>"` — fast hybrid search, use before manual scanning
 
 ### GitNexus
 Usage: `gitnexus analyze <path>` — module import graph, run before editing any module
+
+### shadcn MCP Tools
+- **`search_items_in_registries`** — Search blocks and components (always run first before building UI)
+- **`view_items_in_registries`** — Inspect component source, dependencies, and metadata
+- **`get_item_examples_from_registries`** — Study usage patterns and demo code
+- **`get_add_command_for_items`** — Generate installation commands for `@shadcn` items
+- **`get_audit_checklist`** — Run after installation to verify component correctness

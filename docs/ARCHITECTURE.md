@@ -146,6 +146,42 @@ AXIOM/
 
 ---
 
+## Frontend Stack
+
+AXIOM includes a Vite-based frontend layer using the **shadcn/ui** design system with a blocks-first development protocol.
+
+### Technology
+
+| Layer | Tool | Config |
+|-------|------|--------|
+| Build | Vite | `vite.config.js` |
+| Styling | Tailwind CSS v4 | `src/index.css` |
+| Components | shadcn/ui (`@shadcn` registry) | `components.json` |
+| Typography | Geist / Geist Mono | Loaded via CSS import |
+| Icons | Lucide | `components.json → iconLibrary` |
+
+### Frontend Directories
+
+| Path | Purpose |
+|------|---------|
+| `src/index.css` | Global theme — Obsidian Dark CSS variables, Geist fonts, glassmorphism utilities |
+| `components/ui/` | shadcn-managed component files — installed via `shadcn add`, not manually authored |
+| `components.json` | shadcn registry configuration — style, aliases, icon library |
+| `lib/utils` | Shared utilities (e.g., `cn()` class merge helper) |
+| `index.html` | Vite entry point |
+
+### Development Protocol
+
+All frontend UI work follows the **Shadcn Blocks-First Protocol** defined in `ANTIGRAVITY.md`. Key rules:
+
+1. Search `registry:block` for full page layouts before building custom layouts
+2. Fall to `registry:ui` for individual primitives
+3. Install via shadcn MCP tools — never manually create component files
+4. Theme only via `src/index.css` CSS variables
+5. Audit after every installation
+
+---
+
 ## Module Dependency Map
 
 | Module | Imports From | External Dependencies |
