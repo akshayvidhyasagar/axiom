@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "c1abea862bf6c1b9",
+        "id": "28f23afc5f4fac97",
         "type": "tabs",
         "children": [
           {
-            "id": "f6bb38c76d537776",
+            "id": "4dfef238cb6cdb52",
             "type": "leaf",
             "state": {
-              "type": "graph",
+              "type": "empty",
               "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -196,8 +196,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "f6bb38c76d537776",
+  "active": "4dfef238cb6cdb52",
   "lastOpenFiles": [
+    "doc/range_error.md",
+    "doc",
+    "docs/agents/domain.md",
+    "docs/agents/triage-labels.md",
+    "docs/agents/issue-tracker.md",
+    "docs/agents",
+    "skills-lock.json",
     "CLAUDE.md",
     "AGENTS.md",
     "node_modules/ms/license.md",
@@ -208,9 +215,6 @@
     "components/ui/scroll-area.jsx",
     "components/ui/tooltip.jsx",
     "components/ui/separator.jsx",
-    "components/ui/card.jsx",
-    "components/ui/badge.jsx",
-    "components/ui/input.jsx",
     "node_modules/tree-sitter-swift/node_modules/isexe/README.md",
     "node_modules/tree-sitter-swift/node_modules/which/README.md",
     "node_modules/tree-sitter-swift/node_modules/which/CHANGELOG.md",
@@ -230,10 +234,6 @@
     "node_modules/use-sync-external-store/README.md",
     "node_modules/reselect/README.md",
     "node_modules/tw-animate-css/README.md",
-    "node_modules/class-variance-authority/README.md",
-    "node_modules/tree-sitter-cli/README.md",
-    "node_modules/lucide-react/README.md",
-    "node_modules/react-dom/README.md",
     "scratch/gitnexus-local/GitNexus/gitnexus-web/node_modules/undici/docs/assets/lifecycle-diagram.png",
     "scratch/gitnexus-local/GitNexus/gitnexus-web/node_modules/highlight.js/scss/school-book.png",
     "scratch/gitnexus-local/GitNexus/gitnexus-web/node_modules/highlight.js/scss/pojoaque.jpg",

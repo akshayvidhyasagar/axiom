@@ -234,7 +234,7 @@ If `wiki/canvases/.recent-images.txt` exists, append any new image path written 
 
 ---
 
-## Banana Integration (if the banana-claude plugin is installed)
+## Banana Integration (if the banana-antigravity plugin is installed)
 After any `/banana` run in the same session, if the user says "add to canvas" or "put on canvas", treat it as `/canvas from banana`.
 
 When `/banana` finishes generating images, suggest:
@@ -251,6 +251,6 @@ When `/banana` finishes generating images, suggest:
 
 ## See Also
 For standalone visual production (12 templates, 6 layout algorithms, AI generation,
-presentations), see [claude-canvas](https://github.com/AgriciDaniel/claude-canvas).
-This skill handles wiki-scoped visual boards. claude-canvas handles full-featured
+presentations), see [antigravity-canvas](https://github.com/AgriciDaniel/claude-canvas).
+This skill handles wiki-scoped visual boards. antigravity-canvas handles full-featured
 canvas orchestration for any project.
