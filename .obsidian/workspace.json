@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "3c8f4b19b5dafc82",
+        "id": "c1abea862bf6c1b9",
         "type": "tabs",
         "children": [
           {
-            "id": "74b4c40534ef7eca",
+            "id": "f6bb38c76d537776",
             "type": "leaf",
             "state": {
               "type": "graph",
@@ -16,19 +16,8 @@
               "icon": "lucide-git-fork",
               "title": "Graph view"
             }
-          },
-          {
-            "id": "3ea39c0b4407dae0",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -207,8 +196,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3ea39c0b4407dae0",
+  "active": "f6bb38c76d537776",
   "lastOpenFiles": [
+    "CLAUDE.md",
+    "AGENTS.md",
+    "node_modules/ms/license.md",
     "components/ui/dialog.jsx",
     "components/ui/sheet.jsx",
     "components/ui/skeleton.jsx",
@@ -219,7 +211,6 @@
     "components/ui/card.jsx",
     "components/ui/badge.jsx",
     "components/ui/input.jsx",
-    "index.html",
     "node_modules/tree-sitter-swift/node_modules/isexe/README.md",
     "node_modules/tree-sitter-swift/node_modules/which/README.md",
     "node_modules/tree-sitter-swift/node_modules/which/CHANGELOG.md",
@@ -243,8 +234,6 @@
     "node_modules/tree-sitter-cli/README.md",
     "node_modules/lucide-react/README.md",
     "node_modules/react-dom/README.md",
-    "node_modules/autoprefixer/README.md",
-    "node_modules/tailwindcss/README.md",
     "scratch/gitnexus-local/GitNexus/gitnexus-web/node_modules/undici/docs/assets/lifecycle-diagram.png",
     "scratch/gitnexus-local/GitNexus/gitnexus-web/node_modules/highlight.js/scss/school-book.png",
     "scratch/gitnexus-local/GitNexus/gitnexus-web/node_modules/highlight.js/scss/pojoaque.jpg",
