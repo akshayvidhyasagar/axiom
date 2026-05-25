@@ -40,15 +40,16 @@ Use for frontmatter patches only — do not rewrite full files via API when file
 
 ## GitHub MCP
 
-**Trigger:** Only when task explicitly requires reading GitHub context unavailable locally — open issues, PR descriptions, review comments, CI status.
+**Trigger:** Only when task explicitly requires interacting with GitHub context — open issues, PR descriptions, review comments, CI status, issue triaging, or issue publishing.
 
-**Permitted (read only):**
-- Read issues and issue comments
-- Read PR descriptions, review threads, CI check status
+**Permitted:**
+- Read issues, issue comments, PR descriptions, review threads, and CI check status
 - Read repo metadata (labels, milestones)
+- Create new GitHub issues (specifically when executing the `/to-issues` workflow)
+- Add comments and update labels/milestones on issues (specifically when executing the `/triage` or `/diagnose` workflows)
 
 **Forbidden:**
-- Do not create, edit, or close issues or PRs via GitHub MCP
+- Do not edit or close issues or PRs via GitHub MCP (unless explicitly triaging or updating labels under the `/triage` workflow)
 - Do not push commits, create branches, or merge PRs via GitHub MCP
 - All commits must go through plain `git` CLI following the commit convention in ANTIGRAVITY.md
 - Do not use GitHub MCP as a substitute for local `git log`, `git status`, or `git diff`
@@ -85,7 +86,7 @@ Use for frontmatter patches only — do not rewrite full files via API when file
 
 **Forbidden:**
 - Do not use Airweave as a substitute for reading hot.md, index.md, or local wiki pages — local wiki is always checked first
-- Do not ingest Airweave results directly into wiki without running the full ingest procedure (`skills/wiki-ingest/SKILL.md`)
+- Do not ingest Airweave results directly into wiki without running the full ingest procedure (`.antigravity/skills/wiki/ingest/SKILL.md`)
 - Do not treat Airweave results as canonical — they are retrieval hints, not ground truth
 
 **Read order when Airweave is invoked:**

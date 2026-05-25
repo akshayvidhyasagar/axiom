@@ -153,16 +153,16 @@ All frontend UI development must use shadcn/ui. Always search for registry:block
 
 ## Wiki Operations (claude-obsidian)
 
-The wiki system uses AgriciDaniel/claude-obsidian. Full schema in `skills/WIKI.md`.
+The wiki system uses AgriciDaniel/claude-obsidian. Full schema in `.antigravity/skills/WIKI.md`.
 
 ### Skill routing
-- Ingest: `skills/wiki-ingest/SKILL.md`
-- Query: `skills/wiki-query/SKILL.md` — run `qmd wiki/ "<query>"` first
-- Lint: `skills/wiki-lint/SKILL.md`
-- Save: `skills/save/SKILL.md`
-- Autoresearch: `skills/autoresearch/SKILL.md`
-- Canvas: `skills/canvas/SKILL.md`
-- Fold: `skills/wiki-fold/SKILL.md`
+- Ingest: `.antigravity/skills/wiki/ingest/SKILL.md`
+- Query: `.antigravity/skills/wiki/query/SKILL.md` — run `qmd wiki/ "<query>"` first
+- Lint: `.antigravity/skills/wiki/lint/SKILL.md`
+- Save: `.antigravity/skills/utils/save/SKILL.md`
+- Autoresearch: `.antigravity/skills/research/autoresearch/SKILL.md`
+- Canvas: `.antigravity/skills/utils/canvas/SKILL.md`
+- Fold: `.antigravity/skills/wiki/fold/SKILL.md`
 
 ### Invariants
 - `.raw/` is read-only — never write to it
@@ -195,7 +195,7 @@ These execute in every session regardless of task scope:
 2. qmd for concept lookup
 3. Obsidian REST API for frontmatter patches (when vault is open)
 4. Direct file edit for content changes
-5. skill SKILL.md read before any wiki operation
+5. skill SKILL.md read before any wiki operation (located in `.antigravity/skills/`)
 
 ### Phase → wiki sync
 When `docs/PRD.md` phase checkbox changes to complete:
@@ -221,3 +221,21 @@ Usage: `gitnexus analyze <path>` — module import graph, run before editing any
 - **`get_item_examples_from_registries`** — Study usage patterns and demo code
 - **`get_add_command_for_items`** — Generate installation commands for `@shadcn` items
 - **`get_audit_checklist`** — Run after installation to verify component correctness
+
+---
+
+## Agent Skills (mattpocock/skills)
+
+The agent must invoke and follow the appropriate skill file under `.agents/skills/` based on the task description or user commands:
+
+- **`/diagnose`** (`diagnose/SKILL.md`): Mandatory for hard bugs or regressions. Always build a feedback loop (reproducible/deterministic test/script) before proposing any hypotheses or fixes.
+- **`/grill-with-docs`** (`grill-with-docs/SKILL.md`): Run when working with undocumented modules or decisions. Lazily update or draft `CONTEXT.md` and `docs/DECISIONS.md`.
+- **`/improve-codebase-architecture`** (`improve-codebase-architecture/SKILL.md`): Use when refactoring, breaking circular dependencies, or reorganizing modules.
+- **`/to-prd`** and **`/to-issues`**: Use to draft a PRD from requirements and split it into GitHub issues.
+- **`/triage`** (`triage/SKILL.md`): Use to evaluate and tag incoming tickets.
+- **`/tdd`** (`tdd/SKILL.md`): Use for test-driven feature development.
+- **`/zoom-out`** (`zoom-out/SKILL.md`): Use when unfamiliar with a section of code to get a glossary-mapped architecture view.
+- **`/grill-me`** (`grill-me/SKILL.md`): Use when the user requests a stress test on a proposed design.
+- **`/handoff`** (`handoff/SKILL.md`): Run at the end of a session if transferring context to a new agent. Saves the handoff doc to the OS temp directory.
+- **`/caveman`** (`caveman/SKILL.md`): Triggers ultra-compressed communication to save tokens.
+- **`/write-a-skill`** (`write-a-skill/SKILL.md`): Run when creating new agent skill files.

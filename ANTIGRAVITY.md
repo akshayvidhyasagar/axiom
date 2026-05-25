@@ -211,18 +211,49 @@ AXIOM/                       ← vault root (open this in Obsidian)
 ├── components.json          ← shadcn registry config (style, aliases, icon library)
 ├── index.html               ← Vite entry point
 ├── vite.config.js           ← Vite build config
-└── skills/
-    ├── WIKI.md                   ← claude-obsidian schema — read before any wiki op
-    ├── wiki/SKILL.md
-    ├── wiki-ingest/SKILL.md
-    ├── wiki-query/SKILL.md
-    ├── wiki-lint/SKILL.md
-    ├── wiki-fold/SKILL.md
-    ├── save/SKILL.md
-    ├── autoresearch/SKILL.md
-    ├── canvas/SKILL.md
-    ├── obsidian-markdown/SKILL.md
-    └── interrupt/SKILL.md   ← mid-session interrupt procedure
+├── .antigravity/            ← Antigravity internal configuration
+│   ├── scripts/             ← wrapper scripts for MCP configuration
+│   │   ├── mcp-wrapper.js
+│   │   └── airweave-wrapper.js
+│   └── skills/              ← claude-obsidian custom skill definitions
+│       ├── WIKI.md          ← master schema reference
+│       ├── wiki/            ← wiki skills
+│       │   ├── SKILL.md     ← routing/general wiki
+│       │   ├── ingest/SKILL.md
+│       │   ├── query/SKILL.md
+│       │   ├── lint/SKILL.md
+│       │   └── fold/SKILL.md
+│       ├── utils/
+│       │   ├── save/SKILL.md
+│       │   └── canvas/SKILL.md
+│       ├── research/
+│       │   └── autoresearch/SKILL.md
+│       ├── obsidian/
+│       │   └── obsidian-markdown/SKILL.md
+│       ├── gitnexus/        ← GitNexus skills
+│       │   ├── gitnexus-cli/SKILL.md
+│       │   ├── gitnexus-debugging/SKILL.md
+│       │   ├── gitnexus-exploring/SKILL.md
+│       │   ├── gitnexus-guide/SKILL.md
+│       │   ├── gitnexus-impact-analysis/SKILL.md
+│       │   └── gitnexus-refactoring/SKILL.md
+│       └── interrupt/       ← mid-session interrupt procedure
+└── .agents/                 ← project-level agent directory
+    └── skills/              ← mattpocock/skills (copied or symlinked)
+        ├── caveman/SKILL.md
+        ├── diagnose/SKILL.md
+        ├── grill-me/SKILL.md
+        ├── grill-with-docs/SKILL.md
+        ├── handoff/SKILL.md
+        ├── improve-codebase-architecture/SKILL.md
+        ├── prototype/SKILL.md
+        ├── setup-matt-pocock-skills/SKILL.md
+        ├── tdd/SKILL.md
+        ├── to-issues/SKILL.md
+        ├── to-prd/SKILL.md
+        ├── triage/SKILL.md
+        ├── write-a-skill/SKILL.md
+        └── zoom-out/SKILL.md
 ```
 
 ---
@@ -241,7 +272,7 @@ AXIOM/                       ← vault root (open this in Obsidian)
 | `rules/agent-limits.md` | Hard limits — read before any destructive operation. Never modify without Akshay approval. |
 | `docs/ONBOARDING.md` | Update if system structure changes significantly. Not a session log. |
 | `wiki/gaps/_index.md` | Add gaps as discovered. Resolve inline. Never delete rows — move to resolution log. |
-| `skills/interrupt/SKILL.md` | Read and follow when a session ends mid-task. Do not improvise interrupt behavior. |
+| `.antigravity/skills/interrupt/SKILL.md` | Read and follow when a session ends mid-task. Do not improvise interrupt behavior. |
 | `rules/mcp-policy.md` | Read before using any MCP. Never modify permitted/forbidden rules without Akshay approval. |
 | `components.json` | shadcn registry config. Never add third-party registries without Akshay approval. |
 | `src/index.css` | Obsidian Dark theme variables. All color/font overrides go here — never in component files. |
@@ -255,13 +286,13 @@ Read `skills/WIKI.md` before any wiki operation.
 
 | Trigger | Operation | Skill |
 |---------|-----------|-------|
-| `ingest [file]` | Read source → create pages → update index + log | `skills/wiki-ingest/SKILL.md` |
-| `what do I know about X` | hot.md → index → pages → synthesize | `skills/wiki-query/SKILL.md` |
-| `lint wiki` | Auto-fix links/index; report orphans/gaps | `skills/wiki-lint/SKILL.md` |
-| `/save` | File current answer as permanent wiki page | `skills/save/SKILL.md` |
-| `/autoresearch [topic]` | Autonomous search → fetch → ingest loop | `skills/autoresearch/SKILL.md` |
-| `/canvas` | Create/update Obsidian canvas map | `skills/canvas/SKILL.md` |
-| `fold [page]` | Compress long page to summary | `skills/wiki-fold/SKILL.md` |
+| `ingest [file]` | Read source → create pages → update index + log | `.antigravity/skills/wiki/ingest/SKILL.md` |
+| `what do I know about X` | hot.md → index → pages → synthesize | `.antigravity/skills/wiki/query/SKILL.md` |
+| `lint wiki` | Auto-fix links/index; report orphans/gaps | `.antigravity/skills/wiki/lint/SKILL.md` |
+| `/save` | File current answer as permanent wiki page | `.antigravity/skills/utils/save/SKILL.md` |
+| `/autoresearch [topic]` | Autonomous search → fetch → ingest loop | `.antigravity/skills/research/autoresearch/SKILL.md` |
+| `/canvas` | Create/update Obsidian canvas map | `.antigravity/skills/utils/canvas/SKILL.md` |
+| `fold [page]` | Compress long page to summary | `.antigravity/skills/wiki/fold/SKILL.md` |
 
 ### Query read order (token budget)
 
@@ -545,14 +576,14 @@ Before executing any wiki operation, read the corresponding SKILL.md. Do not imp
 
 | User says | Read first | Then execute |
 |-----------|-----------|--------------|
-| "ingest [anything]" | `skills/wiki-ingest/SKILL.md` | Full ingest procedure |
-| "what do I know about X" | `skills/wiki-query/SKILL.md` | Query procedure |
-| "lint wiki" | `skills/wiki-lint/SKILL.md` | Lint procedure |
-| "/save" | `skills/save/SKILL.md` | Save procedure |
-| "/autoresearch [topic]" | `skills/autoresearch/SKILL.md` | Full autonomous loop |
-| "/canvas" | `skills/canvas/SKILL.md` | Canvas creation |
-| "fold [page]" | `skills/wiki-fold/SKILL.md` | Fold procedure |
-| Any wiki op | `skills/WIKI.md` | Schema reference |
+| "ingest [anything]" | `.antigravity/skills/wiki/ingest/SKILL.md` | Full ingest procedure |
+| "what do I know about X" | `.antigravity/skills/wiki/query/SKILL.md` | Query procedure |
+| "lint wiki" | `.antigravity/skills/wiki/lint/SKILL.md` | Lint procedure |
+| "/save" | `.antigravity/skills/utils/save/SKILL.md` | Save procedure |
+| "/autoresearch [topic]" | `.antigravity/skills/research/autoresearch/SKILL.md` | Full autonomous loop |
+| "/canvas" | `.antigravity/skills/utils/canvas/SKILL.md` | Canvas creation |
+| "fold [page]" | `.antigravity/skills/wiki/fold/SKILL.md` | Fold procedure |
+| Any wiki op | `.antigravity/skills/WIKI.md` | Schema reference |
 
 ### Autoresearch usage
 
@@ -592,6 +623,25 @@ chore: CHANGELOG + hot.md sync
 Canonical doc changes in separate commits from code changes. Never batch wiki + code in one commit.
 
 
+
+## Agent Skills (mattpocock/skills)
+
+AXIOM integrates the `mattpocock/skills` framework for software engineering and productivity workflows. Read the corresponding `SKILL.md` before invoking a skill.
+
+| Skill / Command | Path | Trigger / When to use |
+|-----------------|------|-----------------------|
+| `/diagnose` | `.agents/skills/diagnose/SKILL.md` | Use when debugging, diagnosing a bug, or dealing with performance regressions. Run reproduction loop first. |
+| `/grill-with-docs` | `.agents/skills/grill-with-docs/SKILL.md` | Use when modifying code that lacks documentation or needs clarification. Resolves glossary terms and drafts/updates ADRs. |
+| `/improve-codebase-architecture` | `.agents/skills/improve-codebase-architecture/SKILL.md` | Use when refactoring, resolving circular dependencies, cleaning up modules, or addressing architectural lint warnings. |
+| `/to-prd` | `.agents/skills/to-prd/SKILL.md` | Use when generating a Product Requirements Document (PRD) from user prompts or design specs. |
+| `/to-issues` | `.agents/skills/to-issues/SKILL.md` | Use when splitting a PRD or design plan into separate, trackable GitHub issues. |
+| `/triage` | `.agents/skills/triage/SKILL.md` | Use when triaging new issues, determining if they are AFK-ready or require human intervention, and applying appropriate labels. |
+| `/tdd` | `.agents/skills/tdd/SKILL.md` | Use when implementing features or fixes following strict Test-Driven Development (write failing test -> make it pass -> refactor). |
+| `/zoom-out` | `.agents/skills/zoom-out/SKILL.md` | Use when lost or unfamiliar with a section of the codebase to get a map of relevant modules and callers. |
+| `/grill-me` | `.agents/skills/grill-me/SKILL.md` | Use when stress-testing a design or plan. The agent will ask questions one-by-one to resolve details. |
+| `/handoff` | `.agents/skills/handoff/SKILL.md` | Use to generate a session handoff document for the next session. Saves to the OS temp directory. |
+| `/caveman` | `.agents/skills/caveman/SKILL.md` | Use when token usage needs to be reduced (~75% savings) by omitting articles and pleasantries. |
+| `/write-a-skill` | `.agents/skills/write-a-skill/SKILL.md` | Use when creating, writing, or building a new agent skill. |
 
 ## Akshay's Manual Responsibilities
 

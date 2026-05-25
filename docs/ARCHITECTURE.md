@@ -75,17 +75,42 @@ AXIOM/
 ├── rules/                   ← Antigravity knowledge-base rules
 │   └── axiom-kb.md
 │
-├── skills/                  ← claude-obsidian skill definitions
-│   ├── WIKI.md              ← master schema reference
-│   ├── wiki/SKILL.md
-│   ├── wiki-ingest/SKILL.md
-│   ├── wiki-query/SKILL.md
-│   ├── wiki-lint/SKILL.md
-│   ├── wiki-fold/SKILL.md
-│   ├── save/SKILL.md
-│   ├── autoresearch/SKILL.md
-│   ├── canvas/SKILL.md
-│   └── obsidian-markdown/SKILL.md
+├── .antigravity/            ← Antigravity internal configuration
+│   ├── scripts/             ← wrapper scripts for MCP configuration
+│   │   ├── mcp-wrapper.js
+│   │   └── airweave-wrapper.js
+│   └── skills/              ← claude-obsidian custom skill definitions
+│       ├── WIKI.md          ← master schema reference
+│       ├── wiki/            ← wiki skills
+│       │   ├── SKILL.md     ← routing/general wiki
+│       │   ├── ingest/SKILL.md
+│       │   ├── query/SKILL.md
+│       │   ├── lint/SKILL.md
+│       │   └── fold/SKILL.md
+│       ├── utils/
+│       │   ├── save/SKILL.md
+│       │   └── canvas/SKILL.md
+│       ├── research/
+│       │   └── autoresearch/SKILL.md
+│       └── obsidian/
+│           └── obsidian-markdown/SKILL.md
+│
+├── .agents/                 ← project-level agent directory
+│   └── skills/              ← mattpocock/skills (copied or symlinked)
+│       ├── caveman/SKILL.md
+│       ├── diagnose/SKILL.md
+│       ├── grill-me/SKILL.md
+│       ├── grill-with-docs/SKILL.md
+│       ├── handoff/SKILL.md
+│       ├── improve-codebase-architecture/SKILL.md
+│       ├── prototype/SKILL.md
+│       ├── setup-matt-pocock-skills/SKILL.md
+│       ├── tdd/SKILL.md
+│       ├── to-issues/SKILL.md
+│       ├── to-prd/SKILL.md
+│       ├── triage/SKILL.md
+│       ├── write-a-skill/SKILL.md
+│       └── zoom-out/SKILL.md
 │
 ├── raw/                     ← wiki ingestion drop zone (papers, docs, findings)
 │   └── .gitkeep

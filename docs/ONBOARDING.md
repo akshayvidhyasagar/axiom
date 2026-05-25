@@ -27,8 +27,9 @@ wiki/index.md Master wiki catalog Update on every ingest or wiki restructure
 wiki/gaps/_index.md Open questions and unresolved issues Add gaps as discovered; resolve inline
 wiki/meta/session-log-template.md hot.md fill-in template Use at every session end
 rules/agent-limits.md Hard behavioral limits Non-negotiable — read before any destructive operation
-skills/interrupt/SKILL.md Mid-session interrupt procedure Invoke when session ends without completing goal
+.antigravity/skills/interrupt/SKILL.md Mid-session interrupt procedure Invoke when session ends without completing goal
 rules/mcp-policy.md Permitted operations and hard limits for all MCPs Read before invoking any MCP tool
+.agents/skills/ mattpocock/skills Engineering and productivity skill workflows (TDD, diagnose, triage, etc.)
 What not to touch without reading first
 docs/DECISIONS.md — read before any architectural change
 
