@@ -16,8 +16,19 @@
               "icon": "lucide-git-fork",
               "title": "Graph view"
             }
+          },
+          {
+            "id": "3ea39c0b4407dae0",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -196,7 +207,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "74b4c40534ef7eca",
+  "active": "3ea39c0b4407dae0",
   "lastOpenFiles": [
     "components/ui/dialog.jsx",
     "components/ui/sheet.jsx",
