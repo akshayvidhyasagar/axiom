@@ -5,6 +5,14 @@ Format: `[YYYY-MM-DD] Category — Description`
 
 ---
 
+## [2026-05-26] Fix — Repair Broken Obsidian and GitNexus MCP Configurations
+
+- Replaced wrapper-based launch commands in both repository `mcp_config.json` and global `~/.gemini/config/mcp_config.json` with direct execution commands (`npx -y obsidian-mcp` and `npx -y gitnexus mcp`).
+- Configured direct launch for `obsidian` using standard `obsidian-mcp` package and absolute vault path `/Users/akshayvidhyasagar/AXIOM`.
+- Removed stale `.antigravity/scripts/` wrapper directory tree reference from `AGENTS.md` and `docs/ARCHITECTURE.md` repository diagrams.
+
+---
+
 ## [2026-05-04] Scaffolding — AXIOM Knowledge System
 
 ### Created

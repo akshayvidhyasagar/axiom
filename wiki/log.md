@@ -1,3 +1,8 @@
+## [2026-05-26] fix | Repair Broken Obsidian and GitNexus MCP Configurations [obsidian-sync: offline]
+- Replaced wrapper-based launch commands in both repository `mcp_config.json` and global `~/.gemini/config/mcp_config.json` with direct execution commands (`npx -y obsidian-mcp` and `npx -y gitnexus mcp`).
+- Switched `obsidian` to `obsidian-mcp` via direct `npx` with absolute vault path `/Users/akshayvidhyasagar/AXIOM`.
+- Removed stale `.antigravity/scripts/` wrapper directory tree reference from `AGENTS.md` and `docs/ARCHITECTURE.md`.
+
 ## [2026-05-25] arch | Shadcn Blocks-First Frontend Protocol Integration
 - Codified Shadcn Blocks-First Frontend Protocol across AXIOM
 - Added rules/agent-limits.md and rules/mcp-policy.md restrictions
