@@ -5,6 +5,15 @@ Format: `[YYYY-MM-DD] Category — Description`
 
 ---
 
+## [2026-05-26] Fix — Unified and Generalized Terminology to 'agent' across configs, docs, and skills
+
+- Normalized internal references to "Antigravity" and "Claude" to "agent"/"Agent" across all rules (`rules/agent-limits.md`, `rules/mcp-policy.md`, `rules/axiom-kb.md`), documentation (`AGENTS.md`, `docs/ARCHITECTURE.md`, `docs/ONBOARDING.md`, `README.md`), and custom skills.
+- Generalised file references to target `AGENTS.md` (canonical filename) instead of the obsolete `ANTIGRAVITY.md`.
+- Corrected documentation paths to correctly point to `.agent/skills/` instead of the non-existent `.antigravity/skills/` directory on disk.
+- Overwrote `wiki/hot.md` to capture recent cache updates.
+
+---
+
 ## [2026-05-26] Fix — Repair Broken Obsidian and GitNexus MCP Configurations
 
 - Replaced wrapper-based launch commands in both repository `mcp_config.json` and global `~/.gemini/config/mcp_config.json` with direct execution commands (`npx -y obsidian-mcp` and `npx -y gitnexus mcp`).

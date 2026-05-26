@@ -1,3 +1,8 @@
+## [2026-05-26] fix | Unify terminology to "agent" and normalize paths [obsidian-sync: offline]
+- Standardised internal terminology across the codebase: replaced accidental `Antigravity` and `Claude` references with `agent`/`Agent` in configs, docs, rules, and custom `.agent/` skill definitions.
+- Renamed internal `.antigravity/skills/` paths to `.agent/skills/` in rules and behavior guidelines to align with disk realities.
+- Updated `wiki/hot.md` to capture recent cache updates.
+
 ## [2026-05-26] fix | Repair Broken Obsidian and GitNexus MCP Configurations [obsidian-sync: offline]
 - Replaced wrapper-based launch commands in both repository `mcp_config.json` and global `~/.gemini/config/mcp_config.json` with direct execution commands (`npx -y obsidian-mcp` and `npx -y gitnexus mcp`).
 - Switched `obsidian` to `obsidian-mcp` via direct `npx` with absolute vault path `/Users/akshayvidhyasagar/AXIOM`.
