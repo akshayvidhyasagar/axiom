@@ -198,6 +198,7 @@
   },
   "active": "4dfef238cb6cdb52",
   "lastOpenFiles": [
+    "AGENTS.md",
     "doc/range_error.md",
     "doc",
     "docs/agents/domain.md",
@@ -206,7 +207,6 @@
     "docs/agents",
     "skills-lock.json",
     "CLAUDE.md",
-    "AGENTS.md",
     "node_modules/ms/license.md",
     "components/ui/dialog.jsx",
     "components/ui/sheet.jsx",
