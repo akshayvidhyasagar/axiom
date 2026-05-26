@@ -1,7 +1,7 @@
 ---
 name: wiki
 description: >
-  Claude + Obsidian knowledge companion. Sets up a persistent wiki vault, scaffolds
+  Agent + Obsidian knowledge companion. Sets up a persistent wiki vault, scaffolds
   structure from a one-sentence description, and routes to specialized sub-skills.
   Use for setup, scaffolding, cross-project referencing, and hot cache management.
   Triggers on: "set up wiki", "scaffold vault", "create knowledge base", "/wiki",
@@ -25,7 +25,7 @@ Three layers:
 vault/
 ├── .raw/       # Layer 1: immutable source documents
 ├── wiki/       # Layer 2: LLM-generated knowledge base
-└── CLAUDE.md   # Layer 3: schema and instructions (this plugin)
+└── AGENTS.md   # Layer 3: schema and instructions (this plugin)
 ```
 
 Standard wiki structure:
@@ -118,7 +118,7 @@ Steps:
 5. Create `wiki/index.md`, `wiki/log.md`, `wiki/hot.md`, `wiki/overview.md`.
 6. Create `_templates/` files for each note type.
 7. Apply visual customization. Read `references/css-snippets.md`. Create `.obsidian/snippets/vault-colors.css`.
-8. Create the vault CLAUDE.md using the template below.
+8. Create the vault AGENTS.md using the template below.
 9. Initialize git. Read `references/git-setup.md`.
 10. Present the structure and ask: "Want to adjust anything before we start?"
 
@@ -148,7 +148,7 @@ Created: YYYY-MM-DD
 ## Operations
 
 - Ingest: drop source in .raw/, say "ingest [filename]"
-- Query: ask any question: Claude reads index first, then drills in
+- Query: ask any question: the agent reads index first, then drills in
 - Lint: say "lint the wiki" to run a health check
 - Archive: move cold sources to .archive/ to keep .raw/ clean
 ```
@@ -156,9 +156,9 @@ Created: YYYY-MM-DD
 ---
 
 ## Cross-Project Referencing
-This is the force multiplier. Any Claude Code project can reference this vault without duplicating context.
+This is the force multiplier. Any agent project can reference this vault without duplicating context.
 
-In another project's CLAUDE.md, add:
+In another project's AGENTS.md, add:
 
 ```markdown
 ## Wiki Knowledge Base

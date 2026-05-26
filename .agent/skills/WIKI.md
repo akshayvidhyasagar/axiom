@@ -1,6 +1,6 @@
 ---
 
-> If you are using the claude-obsidian plugin, the skills handle everything here automatically.
+> If you are using the agent skill system, the skills handle everything here automatically.
 > This file is the reference document. Read it to understand how the system works.
 > Based on Andrej Karpathy's LLM Wiki pattern.
 
@@ -73,7 +73,7 @@ Test: `curl -sk -H "Authorization: Bearer <KEY>" https://127.0.0.1:27124/`
 **Option A: mcp-obsidian (REST API based, most popular)**
 
 ```bash
-claude mcp add-json obsidian-vault '{
+agent mcp add-json obsidian-vault '{
   "type": "stdio",
   "command": "uvx",
   "args": ["mcp-obsidian"],
@@ -89,7 +89,7 @@ claude mcp add-json obsidian-vault '{
 **Option B: MCPVault (filesystem based, no plugin needed)**
 
 ```bash
-claude mcp add-json obsidian-vault '{
+agent mcp add-json obsidian-vault '{
   "type": "stdio",
   "command": "npx",
   "args": ["-y", "@bitbonsai/mcpvault@latest", "<VAULT_PATH>"]
@@ -103,11 +103,11 @@ Use `--scope user` so the vault is available across all projects.
 **Verify:**
 
 ```bash
-claude mcp list               # confirm server appears
-claude mcp get obsidian-vault # confirm path is correct
+agent mcp list               # confirm server appears
+agent mcp get obsidian-vault # confirm path is correct
 ```
 
-In a Claude Code session, type `/mcp` to check connection status.
+In an agent session, type `/mcp` to check connection status.
 
 ### 0.5 Recommended Plugins
 Install via Settings > Community Plugins > Browse:
@@ -247,7 +247,7 @@ Trigger: user describes what the vault is for.
 5. Create `wiki/overview.md`, `wiki/index.md`, `wiki/log.md`, `wiki/hot.md`.
 6. Create `_templates/` with templates for each note type.
 7. Apply visual customization (Section 7). Create `.obsidian/snippets/vault-colors.css`.
-8. Create vault CLAUDE.md (template in Section 4.1b).
+8. Create vault AGENTS.md (template in Section 4.1b).
 9. Initialize git (Section 8).
 10. Present the structure and ask: "Want to adjust anything before we start?"
 
@@ -378,7 +378,7 @@ Frontmatter for concepts/: `source_chapters`, `first_appearance`
 
 Key pages: `[[Book Overview]]`, `[[Theme Map]]`, `[[Character / Expert Index]]`, `[[My Takeaways]]`
 
-### 4.1b — Vault CLAUDE.md Template
+### 4.1b — Vault AGENTS.md Template
 Create this in the vault root when scaffolding a new project vault:
 
 ```markdown
@@ -404,7 +404,7 @@ Created: YYYY-MM-DD
 ## Operations
 
 - Ingest: drop source in .raw/, say "ingest [filename]"
-- Query: ask any question — Claude reads index first, then drills in
+- Query: ask any question — the agent reads index first, then drills in
 - Lint: say "lint the wiki" to run a health check
 ```
 
@@ -515,9 +515,9 @@ grep "^## \[" wiki/log.md | head -10
 ---
 
 ## 6 — Cross-Project Referencing
-Any Claude Code project can read your wiki without duplicating context.
+Any agent project can read your wiki without duplicating context.
 
-In another project's CLAUDE.md, add:
+In another project's AGENTS.md, add:
 
 ```markdown
 ## Wiki Knowledge Base
@@ -708,8 +708,8 @@ curl -sk -X POST \
 
 ---
 
-## 12 — Vault CLAUDE.md Template
-When creating a wiki for a new project (not this plugin), create a CLAUDE.md at the vault root:
+## 12 — Vault AGENTS.md Template
+When creating a wiki for a new project (not this plugin), create an AGENTS.md at the vault root:
 
 ```markdown
 # [WIKI NAME] — LLM Wiki
