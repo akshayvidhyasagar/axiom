@@ -1,3 +1,9 @@
+## [2026-05-26] feat | Audit MCP servers and skills and write protocols [obsidian-sync: offline]
+- Audited all 6 MCP servers and 30 custom skills configured under `.agent/skills/`.
+- Documented individual protocols for each component in `rules/skill-protocols.md` and `.agent/rules/skill-protocols.md` with zero grouping.
+- Established 4 multi-step combination recipes and a summary table.
+- Verified header counts match disk counts.
+
 ## [2026-05-26] fix | Unify terminology to "agent" and normalize paths [obsidian-sync: offline]
 - Standardised internal terminology across the codebase: replaced accidental `Antigravity` and `Claude` references with `agent`/`Agent` in configs, docs, rules, and custom `.agent/` skill definitions.
 - Renamed internal `.antigravity/skills/` paths to `.agent/skills/` in rules and behavior guidelines to align with disk realities.

@@ -5,6 +5,15 @@ Format: `[YYYY-MM-DD] Category — Description`
 
 ---
 
+## [2026-05-26] Feat — Audited MCP Servers and Skills and Wrote Individual Protocols
+
+- Audited all 6 MCP servers and 30 custom agent skills configured in the Axiom workspace.
+- Wrote detailed individual protocols for all components to `rules/skill-protocols.md` and `.agent/rules/skill-protocols.md`.
+- Formulated 4 multi-step combination workflows (Feature Build, Hard Bug, Quant Research & Ingest, Refactoring & Code Deepening).
+- Verified header counts match skills count on disk with zero grouping violations or placeholder strings.
+
+---
+
 ## [2026-05-26] Fix — Unified and Generalized Terminology to 'agent' across configs, docs, and skills
 
 - Normalized internal references to "Antigravity" and "Claude" to "agent"/"Agent" across all rules (`rules/agent-limits.md`, `rules/mcp-policy.md`, `rules/axiom-kb.md`), documentation (`AGENTS.md`, `docs/ARCHITECTURE.md`, `docs/ONBOARDING.md`, `README.md`), and custom skills.

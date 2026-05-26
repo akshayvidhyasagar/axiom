@@ -26,6 +26,7 @@ updated: 2026-05-04
 - [[axiom-kb.md]]
 - [[agent-limits.md]]
 - [[mcp-policy.md]]
+- [[skill-protocols.md]]
 
 ## Sources
 *(None yet)*
