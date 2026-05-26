@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "28f23afc5f4fac97",
+        "id": "182106b2af9cbe3c",
         "type": "tabs",
         "children": [
           {
-            "id": "4dfef238cb6cdb52",
+            "id": "ae924df950d3be0c",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -196,8 +196,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4dfef238cb6cdb52",
+  "active": "ae924df950d3be0c",
   "lastOpenFiles": [
+    "mcp_config.json.tmp",
+    "CLAUDE.md",
     "AGENTS.md",
     "doc/range_error.md",
     "doc",
@@ -206,7 +208,6 @@
     "docs/agents/issue-tracker.md",
     "docs/agents",
     "skills-lock.json",
-    "CLAUDE.md",
     "node_modules/ms/license.md",
     "components/ui/dialog.jsx",
     "components/ui/sheet.jsx",
@@ -233,7 +234,6 @@
     "node_modules/@emnapi/runtime/README.md",
     "node_modules/use-sync-external-store/README.md",
     "node_modules/reselect/README.md",
-    "node_modules/tw-animate-css/README.md",
     "scratch/gitnexus-local/GitNexus/gitnexus-web/node_modules/undici/docs/assets/lifecycle-diagram.png",
     "scratch/gitnexus-local/GitNexus/gitnexus-web/node_modules/highlight.js/scss/school-book.png",
     "scratch/gitnexus-local/GitNexus/gitnexus-web/node_modules/highlight.js/scss/pojoaque.jpg",
