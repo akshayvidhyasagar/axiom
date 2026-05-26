@@ -1,28 +1,20 @@
 {
   "mcpServers": {
     "gitnexus": {
-      "command": "/Users/akshayvidhyasagar/.nvm/versions/node/v24.10.0/bin/node",
+      "command": "/Users/akshayvidhyasagar/.nvm/versions/node/v24.10.0/bin/npx",
       "args": [
-        "/Users/akshayvidhyasagar/AXIOM/.antigravity/scripts/mcp-wrapper.js",
-        "/Users/akshayvidhyasagar/.nvm/versions/node/v24.10.0/bin/npx",
         "-y",
         "gitnexus",
         "mcp"
       ]
     },
     "obsidian": {
-      "command": "/Users/akshayvidhyasagar/.nvm/versions/node/v24.10.0/bin/node",
+      "command": "/Users/akshayvidhyasagar/.nvm/versions/node/v24.10.0/bin/npx",
       "args": [
-        "/Users/akshayvidhyasagar/AXIOM/.antigravity/scripts/mcp-wrapper.js",
-        "/Users/akshayvidhyasagar/.nvm/versions/node/v24.10.0/bin/npx",
         "-y",
-        "obsidian-mcp-server"
-      ],
-      "env": {
-        "OBSIDIAN_API_KEY": "26b781faa6e42e5f477d7f04cdc22847ff732ef3211efdf1610b0960feb3414f",
-        "OBSIDIAN_BASE_URL": "http://127.0.0.1:27123",
-        "OBSIDIAN_VERIFY_SSL": "false"
-      }
+        "obsidian-mcp",
+        "/Users/akshayvidhyasagar/AXIOM"
+      ]
     },
     "github": {
       "command": "/Users/akshayvidhyasagar/.nvm/versions/node/v24.10.0/bin/npx",
