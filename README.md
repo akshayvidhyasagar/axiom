@@ -132,12 +132,12 @@ AXIOM includes a self-maintaining knowledge infrastructure:
 
 - **`docs/`** contains canonical documentation — PRD, architecture, decisions, and changelog. These are the source of truth.
 - **`wiki/`** is an Obsidian-compatible vault containing LLM-compiled concept pages. Each page explains a core concept (Alpha158, regime detection, factor scoring, data layer) with cross-links.
-- **`rules/`** contains Antigravity rules that enforce documentation discipline.
+- **`rules/`** contains agent rules that enforce documentation discipline.
 - **`raw/`** is the ingestion drop zone — place papers, research docs, or findings here and the wiki compiler will generate or update concept pages.
 
 **Obsidian:** Point your vault at `AXIOM/wiki/` for graph view of concept relationships.
 
-**Antigravity:** Say "compile wiki" after dropping files into `raw/` to trigger the LLM Wiki Compiler.
+**Agent:** Say "compile wiki" after dropping files into `raw/` to trigger the LLM Wiki Compiler.
 
 ---
 

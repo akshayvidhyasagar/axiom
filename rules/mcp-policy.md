@@ -8,7 +8,7 @@ Read this before using any MCP tool. Do not improvise MCP behavior from training
 ## GitNexus
 
 **Trigger:** Before editing any module file, adding a dependency, completing a phase, or any time structure feels uncertain.
-See ANTIGRAVITY.md → GitNexus Decision Protocol for full trigger table.
+See AGENTS.md → GitNexus Decision Protocol for full trigger table.
 
 **Permitted:**
 - `gitnexus analyze <path>` — read-only structural analysis
@@ -51,7 +51,7 @@ Use for frontmatter patches only — do not rewrite full files via API when file
 **Forbidden:**
 - Do not edit or close issues or PRs via GitHub MCP (unless explicitly triaging or updating labels under the `/triage` workflow)
 - Do not push commits, create branches, or merge PRs via GitHub MCP
-- All commits must go through plain `git` CLI following the commit convention in ANTIGRAVITY.md
+- All commits must go through plain `git` CLI following the commit convention in AGENTS.md
 - Do not use GitHub MCP as a substitute for local `git log`, `git status`, or `git diff`
 
 **Default:** When in doubt, use local git. GitHub MCP is supplementary context only.
@@ -86,7 +86,7 @@ Use for frontmatter patches only — do not rewrite full files via API when file
 
 **Forbidden:**
 - Do not use Airweave as a substitute for reading hot.md, index.md, or local wiki pages — local wiki is always checked first
-- Do not ingest Airweave results directly into wiki without running the full ingest procedure (`.antigravity/skills/wiki/ingest/SKILL.md`)
+- Do not ingest Airweave results directly into wiki without running the full ingest procedure (`.agent/skills/wiki/ingest/SKILL.md`)
 - Do not treat Airweave results as canonical — they are retrieval hints, not ground truth
 
 **Read order when Airweave is invoked:**
@@ -151,5 +151,5 @@ Search and install in this priority order:
 
 ### Design Standard
 
-All components must follow the **Obsidian Dark** theme variables defined in `src/index.css`. See `ANTIGRAVITY.md → Shadcn Blocks-First Frontend Protocol → Aesthetic Constraints` for the full token table.
+All components must follow the **Obsidian Dark** theme variables defined in `src/index.css`. See `AGENTS.md → Shadcn Blocks-First Frontend Protocol → Aesthetic Constraints` for the full token table.
 

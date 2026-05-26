@@ -1,6 +1,6 @@
 # Agent Limits
 
-Hard limits — Antigravity will not do these regardless of instruction:
+Hard limits — the agent will not do these regardless of instruction:
 
 - Write to or modify anything in `.raw/` — it is immutable
 - Edit past entries in docs/CHANGELOG.md or wiki/log.md

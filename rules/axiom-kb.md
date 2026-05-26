@@ -133,8 +133,8 @@ Do not start work on a phase until the previous phase's acceptance criteria are 
 ### R3: Benchmark table integrity
 Never fill benchmark table values with prototype results. Only Qlib-pipeline outputs from committed code are valid.
 
-### R4: Wiki pages follow claude-obsidian schema
-Wiki pages use YAML frontmatter and [[wikilinks]]. Ingestion, query, and lint operations use the new `claude-obsidian` skills. See `skills/WIKI.md` for the full schema.
+### R4: Wiki pages follow agent skill system schema
+Wiki pages use YAML frontmatter and [[wikilinks]]. Ingestion, query, and lint operations use the new agent-obsidian skills. See `skills/WIKI.md` for the full schema.
 
 ### R5: Point-in-time discipline is non-negotiable
 Any data source must document its PIT boundary. Any backtest violating PIT is invalid. See ADR-005.
@@ -151,18 +151,18 @@ All frontend UI development must use shadcn/ui. Always search for registry:block
 
 ---
 
-## Wiki Operations (claude-obsidian)
+## Wiki Operations (Agent Skill System)
 
-The wiki system uses AgriciDaniel/claude-obsidian. Full schema in `.antigravity/skills/WIKI.md`.
+The wiki system uses AgriciDaniel/claude-obsidian (external agent integration). Full schema in `.agent/skills/WIKI.md`.
 
 ### Skill routing
-- Ingest: `.antigravity/skills/wiki/ingest/SKILL.md`
-- Query: `.antigravity/skills/wiki/query/SKILL.md` — run `qmd wiki/ "<query>"` first
-- Lint: `.antigravity/skills/wiki/lint/SKILL.md`
-- Save: `.antigravity/skills/utils/save/SKILL.md`
-- Autoresearch: `.antigravity/skills/research/autoresearch/SKILL.md`
-- Canvas: `.antigravity/skills/utils/canvas/SKILL.md`
-- Fold: `.antigravity/skills/wiki/fold/SKILL.md`
+- Ingest: `.agent/skills/wiki/ingest/SKILL.md`
+- Query: `.agent/skills/wiki/query/SKILL.md` — run `qmd wiki/ "<query>"` first
+- Lint: `.agent/skills/wiki/lint/SKILL.md`
+- Save: `.agent/skills/utils/save/SKILL.md`
+- Autoresearch: `.agent/skills/research/autoresearch/SKILL.md`
+- Canvas: `.agent/skills/utils/canvas/SKILL.md`
+- Fold: `.agent/skills/wiki/fold/SKILL.md`
 
 ### Invariants
 - `.raw/` is read-only — never write to it
@@ -195,7 +195,7 @@ These execute in every session regardless of task scope:
 2. qmd for concept lookup
 3. Obsidian REST API for frontmatter patches (when vault is open)
 4. Direct file edit for content changes
-5. skill SKILL.md read before any wiki operation (located in `.antigravity/skills/`)
+5. skill SKILL.md read before any wiki operation (located in `.agent/skills/`)
 
 ### Phase → wiki sync
 When `docs/PRD.md` phase checkbox changes to complete:

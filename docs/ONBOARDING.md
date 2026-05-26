@@ -7,7 +7,7 @@ AXIOM is a quantitative alpha research system. It generates factors, detects mar
 Mandatory read order on first contact
 This file
 
-ANTIGRAVITY.md — full agent behavior spec, session protocol, commit convention
+AGENTS.md — full agent behavior spec, session protocol, commit convention
 
 wiki/hot.md — current state snapshot (phase, next step, open issues)
 
@@ -15,8 +15,8 @@ docs/PRD.md — phase checkboxes and acceptance criteria
 
 Key file reference
 File Purpose Rule
-ANTIGRAVITY.md Agent behavior spec Read fully before any session
-wiki/hot.md Live project state Overwritten by Antigravity each session end
+AGENTS.md Agent behavior spec Read fully before any session
+wiki/hot.md Live project state Overwritten by the agent each session end
 docs/PRD.md Phase checkboxes Source of truth for what is done vs. pending
 docs/CHANGELOG.md Session history Append only — never edit past entries
 docs/ARCHITECTURE.md Module map and dependency graph Rebuild affected section on any file create/move/delete
@@ -27,7 +27,7 @@ wiki/index.md Master wiki catalog Update on every ingest or wiki restructure
 wiki/gaps/_index.md Open questions and unresolved issues Add gaps as discovered; resolve inline
 wiki/meta/session-log-template.md hot.md fill-in template Use at every session end
 rules/agent-limits.md Hard behavioral limits Non-negotiable — read before any destructive operation
-.antigravity/skills/interrupt/SKILL.md Mid-session interrupt procedure Invoke when session ends without completing goal
+.agent/skills/interrupt/SKILL.md Mid-session interrupt procedure Invoke when session ends without completing goal
 rules/mcp-policy.md Permitted operations and hard limits for all MCPs Read before invoking any MCP tool
 .agents/skills/ mattpocock/skills Engineering and productivity skill workflows (TDD, diagnose, triage, etc.)
 What not to touch without reading first
@@ -41,11 +41,11 @@ docs/PRD.md acceptance criteria — never change without a PRD amendment entry i
 
 Who owns what
 Responsibility Owner
-Phase sign-off ("mark Phase N complete") Akshay — Antigravity handles all resulting file updates
-wiki/hot.md overwrites Antigravity — every session end
+Phase sign-off ("mark Phase N complete") Akshay — the agent handles all resulting file updates
+wiki/hot.md overwrites agent — every session end
 .raw/ population Akshay — manually via Obsidian Web Clipper
 Obsidian graph view audits Akshay — check for orphan nodes after any wiki compile
-Commit authorship Antigravity — follows commit convention in ANTIGRAVITY.md
+Commit authorship agent — follows commit convention in AGENTS.md
 If something looks wrong
 Check wiki/hot.md — does it describe the current state accurately?
 
@@ -61,7 +61,7 @@ AXIOM uses **shadcn/ui** as its mandatory frontend design system with a **blocks
 
 | What | Where |
 |------|-------|
-| Full protocol spec | `ANTIGRAVITY.md → Shadcn Blocks-First Frontend Protocol` |
+| Full protocol spec | `AGENTS.md → Shadcn Blocks-First Frontend Protocol` |
 | MCP permitted operations | `rules/mcp-policy.md → shadcn/ui` |
 | Theme variables | `src/index.css` |
 | Registry config | `components.json` (root) |
@@ -81,7 +81,7 @@ AXIOM uses **shadcn/ui** as its mandatory frontend design system with a **blocks
 - Never build from scratch if a shadcn block or component exists.
 - Never hardcode colors — use CSS variables from `src/index.css`.
 - Never edit `components/ui/` files unless strictly necessary for Obsidian Dark theme overrides.
-- Follow the aesthetic constraints in `ANTIGRAVITY.md`.
+- Follow the aesthetic constraints in `AGENTS.md`.
 - Always verify component installation with the audit checklist.
 - Only the `@shadcn` registry is permitted — no third-party registries without Akshay approval.
 

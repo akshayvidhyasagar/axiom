@@ -1,6 +1,6 @@
 # AXIOM — AlphaAXIOM Trading System
 
-**Agent:** Antigravity
+**Agent:** agent
 **Mode:** B (GitHub/Repo) + E (Research)
 **Owner:** Akshay Vidhyasagar
 **Purpose:** Quantitative alpha research — factor generation, regime detection, model routing, portfolio construction, execution simulation
@@ -88,7 +88,7 @@
    git commit -m "<type>: <description>"
    ```
 
-   Use commit convention from ANTIGRAVITY.md. Canonical doc changes in separate commits from code.
+   Use commit convention from AGENTS.md. Canonical doc changes in separate commits from code.
 
 ### INTERRUPT (if session ends mid-task without completing the goal)
 
@@ -211,8 +211,8 @@ AXIOM/                       ← vault root (open this in Obsidian)
 ├── components.json          ← shadcn registry config (style, aliases, icon library)
 ├── index.html               ← Vite entry point
 ├── vite.config.js           ← Vite build config
-├── .antigravity/            ← Antigravity internal configuration
-│   └── skills/              ← claude-obsidian custom skill definitions
+├── .agent/                  ← Agent internal configuration
+│   └── skills/              ← agent custom skill definitions
 │       ├── WIKI.md          ← master schema reference
 │       ├── wiki/            ← wiki skills
 │       │   ├── SKILL.md     ← routing/general wiki
@@ -269,7 +269,7 @@ AXIOM/                       ← vault root (open this in Obsidian)
 | `rules/agent-limits.md` | Hard limits — read before any destructive operation. Never modify without Akshay approval. |
 | `docs/ONBOARDING.md` | Update if system structure changes significantly. Not a session log. |
 | `wiki/gaps/_index.md` | Add gaps as discovered. Resolve inline. Never delete rows — move to resolution log. |
-| `.antigravity/skills/interrupt/SKILL.md` | Read and follow when a session ends mid-task. Do not improvise interrupt behavior. |
+| `.agent/skills/interrupt/SKILL.md` | Read and follow when a session ends mid-task. Do not improvise interrupt behavior. |
 | `rules/mcp-policy.md` | Read before using any MCP. Never modify permitted/forbidden rules without Akshay approval. |
 | `components.json` | shadcn registry config. Never add third-party registries without Akshay approval. |
 | `src/index.css` | Obsidian Dark theme variables. All color/font overrides go here — never in component files. |
@@ -283,13 +283,13 @@ Read `skills/WIKI.md` before any wiki operation.
 
 | Trigger | Operation | Skill |
 |---------|-----------|-------|
-| `ingest [file]` | Read source → create pages → update index + log | `.antigravity/skills/wiki/ingest/SKILL.md` |
-| `what do I know about X` | hot.md → index → pages → synthesize | `.antigravity/skills/wiki/query/SKILL.md` |
-| `lint wiki` | Auto-fix links/index; report orphans/gaps | `.antigravity/skills/wiki/lint/SKILL.md` |
-| `/save` | File current answer as permanent wiki page | `.antigravity/skills/utils/save/SKILL.md` |
-| `/autoresearch [topic]` | Autonomous search → fetch → ingest loop | `.antigravity/skills/research/autoresearch/SKILL.md` |
-| `/canvas` | Create/update Obsidian canvas map | `.antigravity/skills/utils/canvas/SKILL.md` |
-| `fold [page]` | Compress long page to summary | `.antigravity/skills/wiki/fold/SKILL.md` |
+| `ingest [file]` | Read source → create pages → update index + log | `.agent/skills/wiki/ingest/SKILL.md` |
+| `what do I know about X` | hot.md → index → pages → synthesize | `.agent/skills/wiki/query/SKILL.md` |
+| `lint wiki` | Auto-fix links/index; report orphans/gaps | `.agent/skills/wiki/lint/SKILL.md` |
+| `/save` | File current answer as permanent wiki page | `.agent/skills/utils/save/SKILL.md` |
+| `/autoresearch [topic]` | Autonomous search → fetch → ingest loop | `.agent/skills/research/autoresearch/SKILL.md` |
+| `/canvas` | Create/update Obsidian canvas map | `.agent/skills/utils/canvas/SKILL.md` |
+| `fold [page]` | Compress long page to summary | `.agent/skills/wiki/fold/SKILL.md` |
 
 ### Query read order (token budget)
 
@@ -573,14 +573,14 @@ Before executing any wiki operation, read the corresponding SKILL.md. Do not imp
 
 | User says | Read first | Then execute |
 |-----------|-----------|--------------|
-| "ingest [anything]" | `.antigravity/skills/wiki/ingest/SKILL.md` | Full ingest procedure |
-| "what do I know about X" | `.antigravity/skills/wiki/query/SKILL.md` | Query procedure |
-| "lint wiki" | `.antigravity/skills/wiki/lint/SKILL.md` | Lint procedure |
-| "/save" | `.antigravity/skills/utils/save/SKILL.md` | Save procedure |
-| "/autoresearch [topic]" | `.antigravity/skills/research/autoresearch/SKILL.md` | Full autonomous loop |
-| "/canvas" | `.antigravity/skills/utils/canvas/SKILL.md` | Canvas creation |
-| "fold [page]" | `.antigravity/skills/wiki/fold/SKILL.md` | Fold procedure |
-| Any wiki op | `.antigravity/skills/WIKI.md` | Schema reference |
+| "ingest [anything]" | `.agent/skills/wiki/ingest/SKILL.md` | Full ingest procedure |
+| "what do I know about X" | `.agent/skills/wiki/query/SKILL.md` | Query procedure |
+| "lint wiki" | `.agent/skills/wiki/lint/SKILL.md` | Lint procedure |
+| "/save" | `.agent/skills/utils/save/SKILL.md` | Save procedure |
+| "/autoresearch [topic]" | `.agent/skills/research/autoresearch/SKILL.md` | Full autonomous loop |
+| "/canvas" | `.agent/skills/utils/canvas/SKILL.md` | Canvas creation |
+| "fold [page]" | `.agent/skills/wiki/fold/SKILL.md` | Fold procedure |
+| Any wiki op | `.agent/skills/WIKI.md` | Schema reference |
 
 ### Autoresearch usage
 
@@ -644,4 +644,4 @@ AXIOM integrates the `mattpocock/skills` framework for software engineering and 
 
 1. Install Obsidian Web Clipper → configure save path to `.raw/`
 2. After any wiki compile: check graph view for orphan nodes, report them
-3. Phase sign-off: say "mark Phase N complete" — Antigravity handles all file updates
+3. Phase sign-off: say "mark Phase N complete" — the agent handles all file updates

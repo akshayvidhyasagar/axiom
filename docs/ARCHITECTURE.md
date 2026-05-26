@@ -46,8 +46,7 @@ EVALUATION LAYER
 ```
 AXIOM/
 ├── README.md                ← architecture diagram, benchmark table, methodology
-├── AGENTS.md                ← GitNexus + Antigravity agent rules
-├── ANTIGRAVITY.md           ← Antigravity editor config
+├── AGENTS.md                ← GitNexus + agent rules
 │
 ├── docs/                    ← canonical project documentation
 │   ├── PRD.md               ← phased build plan with acceptance criteria
@@ -72,11 +71,11 @@ AXIOM/
 │   ├── sources/             ← ingested source summaries
 │   └── meta/                ← dashboard, lint reports
 │
-├── rules/                   ← Antigravity knowledge-base rules
+├── rules/                   ← agent knowledge-base rules
 │   └── axiom-kb.md
 │
-├── .antigravity/            ← Antigravity internal configuration
-│   └── skills/              ← claude-obsidian custom skill definitions
+├── .agent/                  ← agent internal configuration
+│   └── skills/              ← agent custom skill definitions
 │       ├── WIKI.md          ← master schema reference
 │       ├── wiki/            ← wiki skills
 │       │   ├── SKILL.md     ← routing/general wiki
@@ -194,7 +193,7 @@ AXIOM includes a Vite-based frontend layer using the **shadcn/ui** design system
 
 ### Development Protocol
 
-All frontend UI work follows the **Shadcn Blocks-First Protocol** defined in `ANTIGRAVITY.md`. Key rules:
+All frontend UI work follows the **Shadcn Blocks-First Protocol** defined in `AGENTS.md`. Key rules:
 
 1. Search `registry:block` for full page layouts before building custom layouts
 2. Fall to `registry:ui` for individual primitives
