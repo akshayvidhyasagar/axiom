@@ -1,7 +1,10 @@
 # Axiom Agent Toolchain and Skill Protocols
 
-This document defines the purpose, triggers, workflows, expected outputs, failure modes, and combinations for every MCP server and agent skill configured in the Axiom workspace.
-
+---
+purpose: Detailed worksheets for all custom agent skills and tools in the workspace
+when_to_use: When executing any custom skill command (/diagnose, /tdd, /save, etc.) or calling MCP servers
+when_not_to_use: For general code modifications or simple file edits
+companion_protocols: "[[core-agent-rules.md]], [[protocol-router.md]]"
 ---
 
 ## MCP Servers

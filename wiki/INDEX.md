@@ -23,10 +23,17 @@ updated: 2026-05-04
 - [[mcp-policy.md]] — MCP usage policy and permitted operations
 
 ## Rules
-- [[axiom-kb.md]]
+- [[core-agent-rules.md]]
+- [[protocol-router.md]]
+- [[planning-protocol.md]]
+- [[debugging-protocol.md]]
+- [[research-protocol.md]]
+- [[documentation-protocol.md]]
+- [[mcp-usage-protocol.md]]
+- [[skills-protocol.md]]
 - [[agent-limits.md]]
+- [[axiom-kb.md]]
 - [[mcp-policy.md]]
-- [[skill-protocols.md]]
 
 ## Sources
 *(None yet)*
