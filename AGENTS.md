@@ -212,9 +212,6 @@ AXIOM/                       ← vault root (open this in Obsidian)
 ├── index.html               ← Vite entry point
 ├── vite.config.js           ← Vite build config
 ├── .antigravity/            ← Antigravity internal configuration
-│   ├── scripts/             ← wrapper scripts for MCP configuration
-│   │   ├── mcp-wrapper.js
-│   │   └── airweave-wrapper.js
 │   └── skills/              ← claude-obsidian custom skill definitions
 │       ├── WIKI.md          ← master schema reference
 │       ├── wiki/            ← wiki skills

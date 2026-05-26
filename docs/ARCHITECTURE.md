@@ -76,9 +76,6 @@ AXIOM/
 │   └── axiom-kb.md
 │
 ├── .antigravity/            ← Antigravity internal configuration
-│   ├── scripts/             ← wrapper scripts for MCP configuration
-│   │   ├── mcp-wrapper.js
-│   │   └── airweave-wrapper.js
 │   └── skills/              ← claude-obsidian custom skill definitions
 │       ├── WIKI.md          ← master schema reference
 │       ├── wiki/            ← wiki skills
