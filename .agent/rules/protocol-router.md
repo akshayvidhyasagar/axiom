@@ -19,7 +19,7 @@ Use this router to determine which specific, on-demand protocols must be activat
 | **Requirements & Design** | Drafting specifications, PRDs, or breaking down implementation plans | `planning-protocol.md` | `/to-prd`<br>`/to-issues` |
 | **Feature Implementation** | Writing new codebase modules, functions, or refactoring green code | `planning-protocol.md`<br>`debugging-protocol.md` | `/tdd` |
 | **Bugs & Performance** | Resolving crashes, unexpected behavior, profiler logs, or regressions | `debugging-protocol.md`<br>`mcp-usage-protocol.md` | `/diagnose`<br>`gitnexus-debugging` |
-| **Refactoring & Code Review** | Changing interfaces, splitting files, resolving circular dependencies | `debugging-protocol.md`<br>`mcp-usage-protocol.md` | `/improve-codebase-architecture`<br>`gitnexus-refactoring` |
+| **Refactoring & Code Review** | Changing interfaces, splitting files, resolving circular dependencies | `architecture-protocol.md`<br>`mcp-usage-protocol.md` | `/improve-codebase-architecture`<br>`gitnexus-refactoring` |
 | **Information Gathering** | Searching external web resources, fetching papers, analyzing concept gaps | `research-protocol.md` | `/autoresearch`<br>`airweave` MCP |
 | **Knowledge Capture** | Ingesting documents/images, writing wiki notes, canvas maps, log folds | `documentation-protocol.md` | `wiki-ingest`<br>`wiki-query`<br>`/save`<br>`/canvas` |
 | **MCP Operations** | Directly invoking external servers (GitHub, Obsidian API, GitNexus, shadcn) | `mcp-usage-protocol.md` | `github`<br>`obsidian`<br>`gitnexus`<br>`shadcn` |

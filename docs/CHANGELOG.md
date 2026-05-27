@@ -5,6 +5,17 @@ Format: `[YYYY-MM-DD] Category — Description`
 
 ---
 
+## [2026-05-27] Refactor — Consolidated Layered Protocols to Resolve Duplication
+
+- Consolidated and merged redundant skill-specific protocols (`skills-planning-protocol.md`, `skills-debugging-protocol.md`, `skills-architecture-protocol.md`) into unified task-mode protocol files.
+- Appended comprehensive Planning and Debugging Skills Reference Catalogs to `planning-protocol.md` and `debugging-protocol.md`.
+- Scaffolded a new canonical task-mode `architecture-protocol.md` merging general refactoring principles with symbol exploration and renames catalogs.
+- Updated `skills-mcp-index.md` reference links to point directly to unified canonical files.
+- Re-routed refactoring dispatching in `protocol-router.md` to map to the new `architecture-protocol.md`.
+- Cleared legacy references from `rules/axiom-kb.md` and `wiki/INDEX.md` and successfully ran automated validation.
+
+---
+
 ## [2026-05-26] Feat — Audited MCP Servers and Skills and Wrote Individual Protocols
 
 - Audited all 6 MCP servers and 30 custom agent skills configured in the Axiom workspace.

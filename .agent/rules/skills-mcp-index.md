@@ -1,13 +1,13 @@
 # Skills & MCP Index
 
-This index provides a concise reference to all skill and MCP protocol files.
+This index provides a concise reference mapping each thematic skill and MCP tool category directly to its canonical governing protocol file.
 
-| Category | Detailed Protocol File |
-|---|---|
-| Planning Skills | [skills-planning-protocol.md](file:///Users/akshayvidhyasagar/AXIOM/.agent/rules/skills-planning-protocol.md) |
-| Debugging Skills | [skills-debugging-protocol.md](file:///Users/akshayvidhyasagar/AXIOM/.agent/rules/skills-debugging-protocol.md) |
-| Architecture & Refactoring Skills | [skills-architecture-protocol.md](file:///Users/akshayvidhyasagar/AXIOM/.agent/rules/skills-architecture-protocol.md) |
-| Knowledge Base & Wiki Skills | [skills-knowledgebase-protocol.md](file:///Users/akshayvidhyasagar/AXIOM/.agent/rules/skills-knowledgebase-protocol.md) |
-| UI & Tooling Skills | [skills-ui-tooling-protocol.md](file:///Users/akshayvidhyasagar/AXIOM/.agent/rules/skills-ui-tooling-protocol.md) |
+| Category / Thematic Area | Canonical Protocol File |
+| :--- | :--- |
+| **Planning & Specifications** | [planning-protocol.md](file:///Users/akshayvidhyasagar/AXIOM/.agent/rules/planning-protocol.md) |
+| **Debugging & Testing** | [debugging-protocol.md](file:///Users/akshayvidhyasagar/AXIOM/.agent/rules/debugging-protocol.md) |
+| **Architecture & Refactoring** | [architecture-protocol.md](file:///Users/akshayvidhyasagar/AXIOM/.agent/rules/architecture-protocol.md) |
+| **Knowledge Base & Wiki** | [documentation-protocol.md](file:///Users/akshayvidhyasagar/AXIOM/.agent/rules/documentation-protocol.md) |
+| **UI, shadcn & Tools** | [mcp-usage-protocol.md](file:///Users/akshayvidhyasagar/AXIOM/.agent/rules/mcp-usage-protocol.md) |
 
-Each detailed file contains the one‑line purpose, exact trigger phrase, step‑by‑step workflow, expected output, failure modes, and recommended skill combinations for the grouped skills.
+Each canonical file contains the task methodology, along with a detailed **Skills Reference Catalog** specifying purposes, triggers, inputs, expected outputs, failure modes, and tool/skill combinations for its category.

@@ -1,27 +1,27 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-05-26
+updated: 2026-05-27
 ---
 
 # Recent Context
 
 ## Last Updated
-2026-05-26 — Audited all configured MCP servers and 30 agent skills, and wrote comprehensive protocols to rules/skill-protocols.md.
+2026-05-27 — Refactored and consolidated modular protocols to resolve duplication between general task-mode rules and skill-specific catalogs.
 
 ## Current State
-- All 6 MCP servers and 30 skills under `.agent/skills/` have been mapped, verified, and documented individually.
-- The protocols have been verified to have exactly 36 level-3 headers with zero grouping violations and zero placeholder text.
-- A summary matrix and 4 multi-step combination workflows have been added.
-- Workspaces and rules are fully synced.
+- Standalone skill-specific protocols (`skills-planning-protocol.md`, `skills-debugging-protocol.md`, `skills-architecture-protocol.md`) have been deleted.
+- Unique triggers, tools, expected outputs, and failure modes have been merged directly into canonical task-mode protocols (`planning-protocol.md`, `debugging-protocol.md`, `architecture-protocol.md`).
+- `skills-mcp-index.md` has been rewritten to directly link skills categories to canonical files.
+- `protocol-router.md` scenario dispatching has been updated to route refactoring to the new `architecture-protocol.md`.
+- Automated validation checks successfully passed with zero stale links or orphan references.
 
 ## Key Known Issues
 - Obsidian Local REST API may report offline if Obsidian is closed; sync fallback is active.
 
 ## Active Threads
-- Ready for quant trading Phase 1 (AlphaAXIOM factor library) or Phase 2 (regime detection) feature development using the newly documented combination recipes.
+- Ready to proceed with quantitative trading library development, using the new clean, low-token protocol layout.
 
 ## Recent Changes
-- Re-wrote `rules/skill-protocols.md` from scratch to cover every skill individually with concrete, Axiom-specific triggers, workflows, expected outputs, and combinations.
-- Saved a duplicate copy to `.agent/rules/skill-protocols.md` to satisfy project configurations.
-- Verified header counts match SKILL.md counts on disk.
+- Consolidated planning, debugging, and architecture rules to prevent duplication and drift.
+- Scaffolds and indexes updated to target unified canonical protocol files.

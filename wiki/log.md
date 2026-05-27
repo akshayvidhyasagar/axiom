@@ -1,3 +1,11 @@
+## [2026-05-27] arch | Consolidated modular protocols to resolve duplication [obsidian-sync: offline]
+- Merged standalone skill-specific protocols (`skills-planning-protocol.md`, `skills-debugging-protocol.md`, `skills-architecture-protocol.md`) into corresponding canonical files.
+- Appended Planning Skills Reference Catalog to `planning-protocol.md`.
+- Appended Debugging Skills Reference Catalog to `debugging-protocol.md`.
+- Scaffolded new canonical task-mode `architecture-protocol.md` with refactoring methodology and tools catalog.
+- Updated `skills-mcp-index.md` and `protocol-router.md` scenario dispatching.
+- Cleared legacy references from `rules/axiom-kb.md` and `wiki/INDEX.md`.
+
 ## [2026-05-26] feat | Audit MCP servers and skills and write protocols [obsidian-sync: offline]
 - Audited all 6 MCP servers and 30 custom skills configured under `.agent/skills/`.
 - Documented individual protocols for each component in `rules/skill-protocols.md` and `.agent/rules/skill-protocols.md` with zero grouping.

@@ -44,3 +44,33 @@ Skip steps only when explicitly justified. Do not guess fixes.
 2. **sequential-thinking MCP** - Analyze interdependencies, state assumptions, and identify potential causes.
 3. `/diagnose` - Create a deterministic repro loop, rank hypotheses, instrument, and fix.
 4. `/tdd` - Write behavior-focused integration tests to lock down the fix.
+
+---
+
+## 5. Debugging Skills Reference Catalog
+
+This catalog details the specific commands, triggers, expected outputs, and operational parameters for debugging skills.
+
+### Covered Skills & Tools
+- `/diagnose` (Structured bug diagnosis and instrumentation loop)
+- `/zoom-out` (Fast, high-level context/glossary mapping)
+- `sequential-thinking` (Multi-step chain-of-thought analysis)
+- `gitnexus-debugging` (Read-only call chain analysis and bug pathfinding)
+
+### Triggers & Usage
+- **Bug Diagnosis**: Invoke `/diagnose` when a crash, unexpected behavior, or test regression is reported.
+- **Context Gathering**: Invoke `/zoom-out` before modifying files to understand high-level code layout and callers.
+- **Complex Reasoning**: Invoke `sequential-thinking` for reasoning on hard design problems with more than 3 unknown variables.
+- **Tool-Based Call Trace**: Call `gitnexus-debugging` to extract upstream call chains and isolate where a bug is introduced.
+
+### Expected Output & Artifacts
+- **Bug Repro**: A fast, deterministic pass/fail reproducer (test case or script).
+- **Hypothesis Log**: A list of 3-5 falsifiable hypotheses.
+- **Trace Analysis**: Impact/blast radius analysis or call chain diagram.
+- **Verified Code**: Regression-tested code with zero temporary debug logs remaining.
+
+### Failure Modes & Remediation
+- **Non-Reproducible Bugs**: If the issue cannot be replicated, **do not proceed** with changes. Re-evaluate steps, consult logs, or ask the user for details.
+- **Stale Workspace Graph**: If GitNexus references stale code, run the indexing command to rebuild the repository map.
+- **Refactoring Regressions**: If a bug fix breaks adjacent code, immediately revert and analyze tests in a GREEN state.
+

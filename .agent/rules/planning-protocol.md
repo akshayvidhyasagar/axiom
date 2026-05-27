@@ -50,3 +50,36 @@ When dividing a plan or PRD into trackable issues (via `/to-issues`), apply thes
   2. `/to-prd` - compile decisions into a formal PRD and post to tracker.
   3. `/to-issues` - break the PRD into vertical, independently-grabbable issues.
   4. `/tdd` - pick issues in order and implement.
+
+---
+
+## 5. Planning Skills Reference Catalog
+
+This catalog details the specific commands, triggers, expected outputs, and operational parameters for planning skills.
+
+### Covered Skills & Tools
+- `/grill-me` (Interactive design/clarification interview)
+- `/grill-with-docs` (Terminology validation and context alignment)
+- `/to-prd` (Synthesizing plan into issue tracker specifications)
+- `/to-issues` (Decomposing plan into vertical issues)
+- `/tdd` (Test-driven implementation loop execution)
+- `/prototype` (Throw-away spike verification)
+- `write-a-skill` (Automated custom skill scaffolding)
+
+### Triggers & Usage
+- **Requirement Grilling**: Invoke `/grill-me` or `/grill-with-docs` when task instructions are ambiguous, missing domain context, or terminology is not normalized.
+- **Spec Synthesizing**: Invoke `/to-prd` when compiling decisions into a formal tracker PRD.
+- **Task Decomposing**: Invoke `/to-issues` to break the plan into vertical tracer bullets.
+- **Implementation & Spikes**: Invoke `/tdd` for vertical-slice test-first coding, or `/prototype` for validation spikes.
+
+### Expected Output & Artifacts
+- **Interactive Interview**: Dynamic choices or interactive terminal questionnaire mapping execution design trees.
+- **Tracker PRD**: Structured ticket posted to issue tracker specifying Problem, Solution, User Stories, and modular boundaries.
+- **Tracer Issues**: Structured set of vertical issues with dependencies and triage metadata.
+- **Spike Sandbox**: Throw-away code sandboxed in `prototype/` directory.
+
+### Failure Modes & Remediation
+- **Requirements Ambiguity**: If grilling reveals unresolved requirements, **stop execution** and ask clarifying questions directly.
+- **Missing Testing Framework**: If `/tdd` is invoked but no runner is configured, report the gap, propose configuration, and install first.
+- **Task Overlap**: If `/to-issues` generates items conflicting with existing issues, flag the overlap to the user before posting.
+
