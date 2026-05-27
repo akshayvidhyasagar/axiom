@@ -23,7 +23,7 @@ Use this router to determine which specific, on-demand protocols must be activat
 | **Information Gathering** | Searching external web resources, fetching papers, analyzing concept gaps | `research-protocol.md` | `/autoresearch`<br>`airweave` MCP |
 | **Knowledge Capture** | Ingesting documents/images, writing wiki notes, canvas maps, log folds | `documentation-protocol.md` | `wiki-ingest`<br>`wiki-query`<br>`/save`<br>`/canvas` |
 | **MCP Operations** | Directly invoking external servers (GitHub, Obsidian API, GitNexus, shadcn) | `mcp-usage-protocol.md` | `github`<br>`obsidian`<br>`gitnexus`<br>`shadcn` |
-| **Skill Commands** | Invoking `/diagnose`, `/tdd`, `/triage`, `/save`, `/canvas`, etc. | `skills-protocol.md` | All 30 custom skills |
+| **Skill Commands** | Invoking `/diagnose`, `/tdd`, `/triage`, `/save`, `/canvas`, etc. | `skills-mcp-index.md` | All 30 custom skills |
 
 ---
 
