@@ -135,7 +135,7 @@ For all operational details, boundaries, routing tables, and skill sheets, consu
 <!-- gitnexus:start -->
 # GitNexus — Code Intelligence
 
-This project is indexed by GitNexus as **axiom** (573 symbols, 727 relationships, 2 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
+This project is indexed by GitNexus as **axiom** (579 symbols, 732 relationships, 2 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
 
 > If any GitNexus tool warns the index is stale, run `npx gitnexus analyze` in terminal first.
 
@@ -173,5 +173,7 @@ This project is indexed by GitNexus as **axiom** (573 symbols, 727 relationships
 | Rename / extract / split / refactor | `.claude/skills/gitnexus/gitnexus-refactoring/SKILL.md` |
 | Tools, resources, schema reference | `.claude/skills/gitnexus/gitnexus-guide/SKILL.md` |
 | Index, status, clean, wiki CLI commands | `.claude/skills/gitnexus/gitnexus-cli/SKILL.md` |
+| Work in the Ui area (32 symbols) | `.claude/skills/generated/ui/SKILL.md` |
+| Work in the Scripts area (12 symbols) | `.claude/skills/generated/scripts/SKILL.md` |
 
 <!-- gitnexus:end -->
